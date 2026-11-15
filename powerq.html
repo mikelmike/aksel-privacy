@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Fox PowerQ Helper v1.2</title>
+
+  <!-- iOS Web App Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PowerQ v1.2">
+  <meta name="theme-color" content="#0a0e14">
+
+  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADwf7zUAAAle0lEQVR4nO3dPY4kR5a20WaDwkjUPwoEJSqUuAmKtZpZxqyGYm2COqUCldnCiB8aRSSLWfkTEe5udu99z1FaaXQnssLd7mNuHvnNd9///C8AACDDv3f/AAAAwDoCAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCI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AAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAA/CvH/wck+o7du5qBEAAAAABJRU5ErkJggg==">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADwf7zUAAAle0lEQVR4nO3dPY4kR5a20WaDwkjUPwoEJSqUuAmKtZpZxqyGYm2COqUCldnCiB8aRSSLWfkTEe5udu99z1FaaXQnssLd7mNuHvnNd9///C8AACDDv3f/AAAAwDoCAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCIAAAAgCACAAAAgggAAAAIIgAAACCI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AAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAABBEAAAAQRAAAAEAQAQAAAEEEAAAA/CvH/wck+o7du5qBEAAAAABJRU5ErkJggg==">
+
+  <style>
+    :root {
+      --bg-primary: #0a0e14;
+      --bg-secondary: #121820;
+      --bg-card: #182230;
+      --bg-card-hover: #1f2c3e;
+      --accent-blue: #007aff;
+      --accent-cyan: #0a84ff;
+      --accent-orange: #ff9500;
+      --accent-red: #ff3b30;
+      --accent-green: #34c759;
+      --accent-yellow: #ffd60a;
+      --text-primary: #ffffff;
+      --text-secondary: #8e9ba8;
+      --text-muted: #576574;
+      --border-color: rgba(255, 255, 255, 0.12);
+      --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-family);
+      font-size: 16px;
+      line-height: 1.5;
+      padding-top: max(env(safe-area-inset-top, 20px), 16px);
+      padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 76px);
+      padding-left: max(env(safe-area-inset-left, 12px), 12px);
+      padding-right: max(env(safe-area-inset-right, 12px), 12px);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Top Navigation Bar */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 4px 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ff9500, #ff5e3a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: white;
+      font-size: 19px;
+      box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3);
+      flex-shrink: 0;
+    }
+
+    .brand-text h1 {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .version-pill {
+      background: rgba(10, 132, 255, 0.2);
+      border: 1px solid rgba(10, 132, 255, 0.45);
+      color: #64b5f6;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 6px;
+    }
+
+    .brand-text p {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .offline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(52, 199, 89, 0.15);
+      border: 1px solid rgba(52, 199, 89, 0.3);
+      color: var(--accent-green);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .offline-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 6px var(--accent-green);
+    }
+
+    /* 3-Document Quick Bar on Main View */
+    .docs-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .doc-pill-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 8px 6px;
+      color: var(--text-primary);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.12s, border-color 0.15s;
+    }
+
+    .doc-pill-btn:active {
+      transform: scale(0.96);
+    }
+
+    .doc-pill-title {
+      font-size: 12px;
+      font-weight: 700;
+      display: block;
+    }
+
+    .doc-pill-sub {
+      font-size: 10px;
+      color: var(--text-secondary);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Tab Switcher */
+    .tab-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: calc(env(safe-area-inset-bottom, 16px) + 58px);
+      padding-bottom: env(safe-area-inset-bottom, 16px);
+      background: rgba(18, 24, 32, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      flex: 1;
+      padding: 6px 0;
+      transition: color 0.15s ease;
+    }
+
+    .tab-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .tab-btn.active {
+      color: var(--accent-cyan);
+    }
+
+    /* Content Views */
+    .view-container {
+      display: none;
+      animation: fadeIn 0.18s ease-in-out;
+    }
+
+    .view-container.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Voice / Assistant View */
+    .voice-hero {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 16px 14px;
+      text-align: center;
+      margin-bottom: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mic-button-wrapper {
+      position: relative;
+      display: inline-block;
+      margin: 8px 0 10px;
+    }
+
+    .mic-btn {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      border: none;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0, 122, 255, 0.4);
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.15s ease, background 0.2s;
+    }
+
+    .mic-btn:active {
+      transform: scale(0.92);
+    }
+
+    .mic-btn.listening {
+      background: linear-gradient(135deg, var(--accent-red), #ff2d55);
+      box-shadow: 0 8px 28px rgba(255, 59, 48, 0.6);
+      animation: micPulse 1.4s infinite ease-in-out;
+    }
+
+    @keyframes micPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    .mic-waves {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 106px;
+      height: 106px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-cyan);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .mic-btn.listening + .mic-waves {
+      animation: ripple 1.6s infinite ease-out;
+    }
+
+    @keyframes ripple {
+      0% { width: 72px; height: 72px; opacity: 0.8; border-color: var(--accent-red); }
+      100% { width: 128px; height: 128px; opacity: 0; border-color: transparent; }
+    }
+
+    .voice-status {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: var(--text-primary);
+    }
+
+    .voice-hint {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .transcript-box {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: rgba(0, 0, 0, 0.28);
+      border-radius: 10px;
+      border: 1px dashed rgba(255, 255, 255, 0.16);
+      font-size: 13px;
+      color: #9bd0ff;
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Search Box */
+    .search-bar-wrap {
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      border-radius: 14px;
+      padding: 13px 44px 13px 40px;
+      font-size: 16px;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.22);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      fill: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.18);
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      color: var(--text-primary);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* Topic Chips */
+    .chips-carousel {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .chips-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: #b8c7d6;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 13px;
+      border-radius: 18px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .chip:active {
+      background: var(--accent-blue);
+      color: white;
+    }
+
+    /* Answer Cards */
+    .result-section {
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .badge-major {
+      background: rgba(255, 59, 48, 0.2);
+      color: var(--accent-red);
+      border: 1px solid rgba(255, 59, 48, 0.4);
+    }
+
+    .badge-minor {
+      background: rgba(255, 149, 0, 0.2);
+      color: var(--accent-orange);
+      border: 1px solid rgba(255, 149, 0, 0.4);
+    }
+
+    .badge-warning {
+      background: rgba(255, 214, 10, 0.2);
+      color: var(--accent-yellow);
+      border: 1px solid rgba(255, 214, 10, 0.4);
+    }
+
+    .badge-info {
+      background: rgba(10, 132, 255, 0.2);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(10, 132, 255, 0.4);
+    }
+
+    .badge-green {
+      background: rgba(52, 199, 89, 0.2);
+      color: var(--accent-green);
+      border: 1px solid rgba(52, 199, 89, 0.4);
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    /* Clickable Section Chip */
+    .section-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(10, 132, 255, 0.16);
+      border: 1px solid rgba(10, 132, 255, 0.4);
+      color: #70b8ff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .section-chip:active {
+      background: rgba(10, 132, 255, 0.35);
+      transform: scale(0.97);
+    }
+
+    /* Prominent Open in Manual Button */
+    .open-manual-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 14px;
+      padding: 12px 14px;
+      background: linear-gradient(135deg, #007aff, #0055cc);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      box-shadow: 0 3px 10px rgba(0, 122, 255, 0.3);
+      transition: transform 0.12s, opacity 0.15s;
+    }
+
+    .open-manual-btn:active {
+      transform: scale(0.98);
+      opacity: 0.9;
+    }
+
+    .field-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .field-value {
+      font-size: 14px;
+      color: #cfd8e3;
+      line-height: 1.55;
+      white-space: pre-line;
+    }
+
+    .field-value ol, .field-value ul {
+      padding-left: 20px;
+      margin-top: 4px;
+    }
+
+    .field-value li {
+      margin-bottom: 5px;
+    }
+
+    .receipt-box {
+      background: rgba(0, 0, 0, 0.32);
+      border-left: 3px solid var(--accent-orange);
+      padding: 10px 12px;
+      margin-top: 12px;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+      color: #ffd599;
+      font-style: italic;
+    }
+
+    /* Filter Bars */
+    .filter-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .filter-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-btn {
+      flex: 1;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 9px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .filter-btn.active {
+      background: var(--accent-cyan);
+      color: white;
+      border-color: var(--accent-cyan);
+    }
+
+    .alarm-list-item {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.15s;
+    }
+
+    .alarm-list-item:active {
+      background: var(--bg-card-hover);
+    }
+
+    .alarm-code {
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--accent-cyan);
+      margin-right: 10px;
+    }
+
+    /* LED View */
+    .led-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+
+    .led-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin: 8px 0;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    .led-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+
+    .led-dot.green { background: #34c759; box-shadow: 0 0 6px #34c759; }
+    .led-dot.red { background: #ff3b30; box-shadow: 0 0 6px #ff3b30; }
+    .led-dot.yellow { background: #ffd60a; box-shadow: 0 0 6px #ffd60a; }
+    .led-dot.off { background: #48484a; border: 1px solid #636366; }
+
+    /* Manual Reader View */
+    .manual-toolbar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      align-items: center;
+    }
+
+    .manual-back-btn {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: rgba(10, 132, 255, 0.18);
+      border: 1px solid var(--accent-cyan);
+      color: #70b8ff;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 12px;
+      width: 100%;
+    }
+
+    .manual-action-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .manual-section-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .manual-section-card.highlighted {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 2px rgba(10, 132, 255, 0.35);
+    }
+
+    .manual-section-header {
+      padding: 13px 15px;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      gap: 8px;
+    }
+
+    .manual-section-header:active {
+      background: var(--bg-card-hover);
+    }
+
+    .manual-section-body {
+      padding: 0 15px 15px;
+      font-size: 14px;
+      color: #d0dbe6;
+      display: none;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .manual-section-card.open .manual-section-body {
+      display: block;
+      padding-top: 12px;
+    }
+
+    .manual-summary-box {
+      background: rgba(10, 132, 255, 0.1);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 8px 10px;
+      border-radius: 0 6px 6px 0;
+      font-size: 12px;
+      color: #9bd0ff;
+      margin-bottom: 10px;
+    }
+
+    .manual-inline-item {
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-top: 8px;
+    }
+
+    .manual-inline-item.target-highlight {
+      border-color: var(--accent-orange);
+      background: rgba(255, 149, 0, 0.14);
+    }
+  </style>
+</head>
+<body>
+  <div id="pwa-install-banner" style="display:none;background:#182230;border:1px solid #007aff;border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:13px;line-height:1.4">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+      <b style="color:#0a84ff">📲 Install to iPhone Home Screen:</b>
+      <button onclick="document.getElementById('pwa-install-banner').style.display='none'" style="background:transparent;border:0;color:#8e9ba8;font-size:18px;cursor:pointer">×</button>
+    </div>
+    <span>Tap Safari's <b>Share icon</b> <span style="font-size:15px">⎙</span> at the bottom, then scroll down and tap <b>Add to Home Screen ⊞</b>. Works 100% offline!</span>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">Q</div>
+      <div class="brand-text">
+        <h1>Fox PowerQ <span class="version-pill">v1.2</span></h1>
+        <p>User Manual • Quick Install • Commission Guide</p>
+      </div>
+    </div>
+    <div class="offline-badge">
+      <span class="offline-dot"></span>
+      <span>3 Docs • Offline</span>
+    </div>
+  </header>
+
+  <!-- MAIN TAB 1: ASSISTANT & VOICE -->
+  <main id="tab-assistant" class="view-container active">
+    <!-- 3-Document Quick Switcher Bar -->
+    <div class="docs-bar">
+      <button class="doc-pill-btn" style="border-color: rgba(10, 132, 255, 0.45);" onclick="openDocInManual('manual')">
+        <span class="doc-pill-title" style="color: #64b5f6;">📘 User Manual</span>
+        <span class="doc-pill-sub">v1.3c • 84 Pages</span>
+      </button>
+      <button class="doc-pill-btn" style="border-color: rgba(255, 149, 0, 0.45);" onclick="openDocInManual('qig')">
+        <span class="doc-pill-title" style="color: #ffb74d;">📙 Quick Install</span>
+        <span class="doc-pill-sub">v1.1a • 45 Pages</span>
+      </button>
+      <button class="doc-pill-btn" style="border-color: rgba(52, 199, 89, 0.45);" onclick="openDocInManual('commission')">
+        <span class="doc-pill-title" style="color: #81c784;">📗 Commission</span>
+        <span class="doc-pill-sub">v1.4b • 12 Pages</span>
+      </button>
+    </div>
+
+    <!-- Voice Hero -->
+    <div class="voice-hero">
+      <div class="voice-status" id="voiceStatus">Tap Mic to Ask Across All 3 Docs</div>
+      <div class="voice-hint" id="voiceHint">Ask about alarms, wire gauges, CT wiring, turn-on steps, or FoxCloud setup</div>
+      
+      <div class="mic-button-wrapper">
+        <button class="mic-btn" id="micBtn" onclick="toggleVoiceRecording()" aria-label="Voice Input">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+          </svg>
+        </button>
+        <div class="mic-waves"></div>
+      </div>
+
+      <div class="transcript-box" id="transcriptBox">
+        Tap Mic above or speak using iPhone keyboard dictation...
+      </div>
+    </div>
+
+    <!-- Search Input -->
+    <div class="search-bar-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24">
+        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+      </svg>
+      <input type="search" id="searchInput" class="search-input" placeholder="Search all 3 docs (e.g. 1025, wire gauge, CT, checklist, turn on)..." oninput="handleSearchInput(this.value)">
+      <button class="search-clear" id="searchClear" onclick="clearSearch()">&times;</button>
+    </div>
+
+    <!-- Quick Chips Across All 3 Docs -->
+    <div class="chips-carousel">
+      <button class="chip" onclick="quickSearch('Turn On')">📙 Turn On / Off (3s / 5s)</button>
+      <button class="chip" onclick="quickSearch('Wire Gauges')">📙 Wire Gauges &amp; Torque</button>
+      <button class="chip" onclick="quickSearch('Compatible Breaker')">📙 Compatible Breakers</button>
+      <button class="chip" onclick="quickSearch('120')">📙 120&Omega; Resistors (P5)</button>
+      <button class="chip" onclick="quickSearch('CT Wiring')">📙 CT Wiring (Grid/Solar)</button>
+      <button class="chip" onclick="quickSearch('Commissioning Checklist')">📗 Commissioning Checklist</button>
+      <button class="chip" onclick="quickSearch('2.4GHz')">📗 WiFi 2.4GHz &amp; WiLAN</button>
+      <button class="chip" onclick="quickSearch('Zero Back-feed')">📗 Zero Back-feed (0.0%)</button>
+      <button class="chip" onclick="quickSearch('Service Panel Param')">📗 Hub Not Service Panel</button>
+      <button class="chip" onclick="quickSearch('Capacitor Discharge')">📘 5m Capacitor Discharge</button>
+      <button class="chip" onclick="quickSearch('E-STOP Reset')">📘 E-STOP Reset &amp; P6</button>
+      <button class="chip" onclick="quickSearch('1025')">📘 Alarm 1025</button>
+      <button class="chip" onclick="quickSearch('1035')">📘 Alarm 1035</button>
+    </div>
+
+    <!-- Diagnostic Results Area -->
+    <div id="resultsArea" class="result-section"></div>
+  </main>
+
+  <!-- TAB 2: ALARM DIRECTORY -->
+  <main id="tab-directory" class="view-container">
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterAlarms('all', this)">All (49)</button>
+      <button class="filter-btn" onclick="filterAlarms('Major', this)">Major (28)</button>
+      <button class="filter-btn" onclick="filterAlarms('Minor', this)">Minor (18)</button>
+      <button class="filter-btn" onclick="filterAlarms('Warning', this)">Warning (3)</button>
+    </div>
+    <div id="alarmDirectoryList"></div>
+  </main>
+
+  <!-- TAB 3: LED DIAGNOSTIC -->
+  <main id="tab-leds" class="view-container">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px;">
+      <h2 style="font-size: 15px; color: var(--accent-green);">Smart WiLAN Dongle LEDs (3 States)</h2>
+      <span class="section-chip" style="margin-bottom:0;" onclick="openManualAt('CG-3', 6)">📗 CG Step 3 • p. 6 &rarr;</span>
+    </div>
+    <div id="wilanLedList"></div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin: 18px 0 10px;">
+      <h2 style="font-size: 15px; color: var(--accent-cyan);">Inverter Status LEDs (9 States)</h2>
+      <span class="section-chip" style="margin-bottom:0;" onclick="openManualAt('3.0', 62)">📘 Manual &sect; 3.0 • p. 62 &rarr;</span>
+    </div>
+    <div id="inverterLedList"></div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin: 18px 0 10px;">
+      <h2 style="font-size: 15px; color: var(--accent-orange);">Battery Fault LEDs (30 Faults)</h2>
+      <span class="section-chip" style="margin-bottom:0;" onclick="openManualAt('3.0', 64)">📘 Manual &sect; 3.2 • p. 64 &rarr;</span>
+    </div>
+    <div id="batteryLedList"></div>
+  </main>
+
+  <!-- TAB 4: MANUAL REFERENCE (ALL 3 DOCS) -->
+  <main id="tab-manual" class="view-container">
+    <button id="manualBackBtn" class="manual-back-btn" onclick="returnToAssistant()">
+      &larr; Back to Assistant Result
+    </button>
+
+    <!-- Document Selector Tabs inside Manual -->
+    <div class="filter-bar">
+      <button class="filter-btn active" id="docfilter-all" onclick="filterManualByDoc('all', this)">All 3 Docs (33)</button>
+      <button class="filter-btn" id="docfilter-manual" onclick="filterManualByDoc('manual', this)">📘 User Manual (17)</button>
+      <button class="filter-btn" id="docfilter-qig" onclick="filterManualByDoc('qig', this)">📙 Quick Install (8)</button>
+      <button class="filter-btn" id="docfilter-commission" onclick="filterManualByDoc('commission', this)">📗 Commission (8)</button>
+    </div>
+
+    <div class="manual-toolbar">
+      <input type="search" id="manualSearchInput" class="search-input" style="padding: 10px 14px; font-size: 14px;" placeholder="Search within manuals, pages, or tables..." oninput="applyManualFilters()">
+      <button class="manual-action-btn" id="expandAllBtn" onclick="toggleExpandAllManual()">Expand All</button>
+    </div>
+
+    <div id="manualSectionList"></div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="tab-nav">
+    <button class="tab-btn active" id="nav-assistant" onclick="switchTab('assistant')">
+      <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+      <span>Assistant</span>
+    </button>
+    <button class="tab-btn" id="nav-directory" onclick="switchTab('directory')">
+      <svg viewBox="0 0 24 24"><path d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z"/></svg>
+      <span>Alarms (49)</span>
+    </button>
+    <button class="tab-btn" id="nav-leds" onclick="switchTab('leds')">
+      <svg viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+      <span>LEDs</span>
+    </button>
+    <button class="tab-btn" id="nav-manual" onclick="switchTab('manual')">
+      <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+      <span>Manuals (3)</span>
+    </button>
+  </nav>
+
+  <!-- EMBEDDED MANUAL DATA -->
+  <script>
+    const MANUAL_DATA = {"title": "Fox PowerQ Energy Storage System User Manual", "version": "v1.3c_0930", "manufacturer": "FOXESS CO., LTD.", "alarms": [{"code": "1025", "name": "Grid Overvoltage", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The grid voltage RMS value exceeds the higher threshold specified for HVRT.", "suggestion": "1. If the alarm is triggered accidentally, it may be due to temporary abnormalities in the power grid. The Fox PowerQ will automatically recover after the power grid has resumed normal functioning.\n2. Check whether the grid connection voltage exceeds the upper threshold. If so, contact the local power operator.\n3. If you have confirmed that the grid connection voltage exceeds the upper threshold and have obtained the consent of the local power operator, modify the overvoltage protection threshold.", "section": "5.1 Troubleshooting", "page": 67}, {"code": "1026", "name": "Grid Transient Overvoltage", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The grid voltage peak value exceeds the higher threshold specified for HVRT.", "suggestion": "1. If the alarm is triggered accidentally, it may be due to temporary abnormalities in the power grid. The Fox PowerQ will automatically recover after the power grid has resumed normal functioning.\n2. If the alarm is triggered frequently, check whether the grid voltage is within the acceptable range. If not, contact the local power operator. If so, modify the power grid overvoltage protection threshold with the consent of the local power operator.", "section": "5.1 Troubleshooting", "page": 67}, {"code": "1027", "name": "Grid Undervoltage", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The grid voltage rms value is below the lower threshold specified for LVRT.", "suggestion": "1. If the alarm is triggered accidentally, it may be due to temporary abnormalities in the power grid. The Fox PowerQ will automatically recover after the power grid has resumed normal functioning.\n2. If the alarm is triggered frequently, check whether the grid voltage is within the acceptable range. If not, contact the local power operator. If so, modify the power grid undervoltage protection threshold with the consent of the local power operator.\n3. If the fault persists for a long time, check the connection between the AC switch and the output power cable.", "section": "5.1 Troubleshooting", "page": 67}, {"code": "1028", "name": "Grid Voltage Low", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The grid voltage rms value is below the lower threshold specified for LVRT.", "suggestion": "1. If the alarm is triggered accidentally, it may be due to temporary abnormalities in the power grid. The Fox PowerQ will automatically recover after the power grid has resumed normal functioning.\n2. If the alarm is triggered frequently, check whether the grid voltage is within the acceptable range. If not, contact the local power operator. If so, modify the power grid undervoltage protection threshold with the consent of the local power operator.\n3. If the fault persists for a long time, check the connection between the AC switch and the output power cable.", "section": "5.1 Troubleshooting", "page": 68}, {"code": "1030", "name": "AC Overcurrent", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The grid voltage drops dramatically or the power grid or the output load is short-circuited. As a result, the Fox PowerQ transient output current exceeds the upper threshold and triggers the Fox PowerQ protection.", "suggestion": "1. The Fox PowerQ monitors its external working conditions in real time. And it can automatically recover after the fault is rectified.\n2. If the alarm is triggered frequently and affects the power production of the PV plant, check whether grid or the output is short-circuited. If the fault persists, contact your installer.", "section": "5.1 Troubleshooting", "page": 68}, {"code": "1031", "name": "Grid Overfrequency", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The actual grid frequency is higher than the local power grid standard.", "suggestion": "1. If the alarm is triggered accidentally, it may be due to temporary abnormalities in the power grid. The Fox PowerQ will automatically recover after the power grid has resumed normal functioning.\n2. If the alarm is triggered frequently, check whether the grid frequency is within the acceptable range. If not, contact the local power operator. If so, modify the grid overfrequency protection threshold with the consent of the local power operator.", "section": "5.1 Troubleshooting", "page": 69}, {"code": "1032", "name": "Grid Underfrequency", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The actual grid frequency is below than lower threshold standard.", "suggestion": "1. If the alarm is triggered accidentally, it may be due to temporary abnormalities in the power grid. The Fox PowerQ will automatically recover after the power grid has resumed normal functioning.\n2. If the alarm is triggered frequently, check whether the grid frequency is within the acceptable range. If not, contact the local power operator. If so, modify the grid underfrequency protection threshold with the consent of the local power operator.", "section": "5.1 Troubleshooting", "page": 69}, {"code": "1035", "name": "High Leakage Current Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The leak current RMS value exceeds the threshold specified for leak current, and the temporary dynamic value exceeds 30mA over 0.3s, or exceeds 60mA 0.15s or 150mA 0.04s.", "suggestion": "1. If the alarm is triggered accidentally, it may be due to leak current exceeding the threshold or temporary dynamic value exceeding the threshold. The Fox PowerQ will automatically recover when the leak current is less than 100mA.\n2. If the alarm is triggered frequently and affects the power production of the PV plant, check ground impedance of PV. If the fault persists, contact your installer.", "section": "5.1 Troubleshooting", "page": 69}, {"code": "1038", "name": "Grid Voltage High", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The grid voltage RMS value exceeds the higher threshold specified for HVRT.", "suggestion": "1. If the alarm is triggered accidentally, it may be due to temporary abnormalities in the power grid. The Fox PowerQ will automatically recover after the power grid has resumed normal functioning.\n2. Check whether the grid connection voltage exceeds the upper threshold. If so, contact the local power operator.\n3. If you have confirmed that the grid connection voltage exceeds the upper threshold and have obtained the consent of the local power operator, modify the overvoltage protection threshold.", "section": "5.1 Troubleshooting", "page": 70}, {"code": "1039", "name": "Hardware (L1) Inverter Overcurrent Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The grid voltage drops dramatically or the power grid or the output load is short-circuited. As a result, the Fox PowerQ transient output current exceeds the upper threshold and, which triggers the Fox PowerQ protection.", "suggestion": "1. The Fox PowerQ monitors its external working conditions in real time. And it can automatically recover after the fault is rectified.\n2. If the alarm is triggered frequently and affects the power production of the PV plant, check whether grid or the output is overloaded or short-circuited. If the fault persists, contact your installer.", "section": "5.1 Troubleshooting", "page": 70}, {"code": "1040", "name": "Unbalanced Grid Voltage", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The difference between grid phase voltages exceeds the upper threshold.", "suggestion": "1. Check that the grid voltage is within the normal range.\n2. Check the connection of the AC output power cable.\n3. If the cable is connected properly but the alarm is triggered frequently and affects the power production of the PV plant, contact the local power operator.", "section": "5.1 Troubleshooting", "page": 70}, {"code": "1041", "name": "Hardware (L2) Inverter Overcurrent Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The grid voltage drops dramatically or the power grid or the output load is short-circuited. As a result, the Fox PowerQ transient output current exceeds the upper threshold and which triggers the Fox PowerQ protection.", "suggestion": "1. The Fox PowerQ monitors its external working conditions in real time. And it can automatically recover after the fault is rectified.\n2. If the alarm is triggered frequently and affects the power production of the PV plant, check whether grid or the output is overloaded or short-circuited. If the fault persists, contact your installer.", "section": "5.1 Troubleshooting", "page": 70}, {"code": "1042", "name": "Grid Frequency High", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The actual grid frequency is higher than the local power grid standard.", "suggestion": "1. If the alarm is triggered accidentally, it may be due to temporary abnormalities in the power grid. The Fox PowerQ will automatically recover after the power grid has resumed normal functioning.\n2. If the alarm is triggered frequently, check whether the grid frequency is within the acceptable range. If not, contact the local power operator. If so, modify the grid overfrequency protection threshold with the consent of the local power operator.", "section": "5.1 Troubleshooting", "page": 71}, {"code": "1043", "name": "Grid Frequency Low", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The actual grid frequency is below than the local power grid standard.", "suggestion": "1. If the alarm is triggered accidentally, it may be due to temporary abnormalities in the power grid. The Fox PowerQ will automatically recover after the power grid has resumed normal functioning.\n2. If the alarm is triggered frequently, check whether the grid frequency is within the acceptable range. If not, contact the local power operator. If so, modify the grid underfrequency protection threshold with the consent of the local power operator.", "section": "5.1 Troubleshooting", "page": 71}, {"code": "1047", "name": "Ground Wire Detection Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "1. The PE cable for the Fox PowerQ is not connected.\n2. The voltage between the Fox PowerQ neutral wire and ground exceeds the upper threshold.", "suggestion": "1. Check whether the PE cable for the Fox PowerQ is connected properly.\n2. Check whether the output is connected to an isolation transformer. If so, set OFF due to abnormal grounding to Disable.\n3. If the Fox PowerQ is connected to the TN power grid, check whether the voltage of the neutral wire to ground is normal.", "section": "5.1 Troubleshooting", "page": 72}, {"code": "1057", "name": "Bus Transient Overvoltage", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "Bus voltage is higher than the value of protection.", "suggestion": "1. If the alarm is triggered accidentally, it may be due to temporary abnormalities in the power grid. The Fox PowerQ will automatically recover after the power grid resumes normal functioning.\n2. Check the PV open voltage if higher than 550V.\n3. Check the BAT voltage if higher than 460V.\n4. If the fault persists, contact your installer.", "section": "5.1 Troubleshooting", "page": 72}, {"code": "1066", "name": "DC Input PV1 Reverse Connection Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The PV1 module output is reversely connected.", "suggestion": "Check whether the PV1 module output is reversely connected.", "section": "5.1 Troubleshooting", "page": 72}, {"code": "1067", "name": "DC Input PV2 Reverse Connection Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The PV2 module output is reversely connected.", "suggestion": "Check whether the PV2 module output is reversely connected.", "section": "5.1 Troubleshooting", "page": 72}, {"code": "1081", "name": "DC Input PV3 Reverse Connection Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The PV3 module output is reversely connected.", "suggestion": "Check whether the PV3 module output is reversely connected.", "section": "5.1 Troubleshooting", "page": 72}, {"code": "1089", "name": "INV IGBT Overtemperature", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The temperature of INV IGBT is higher than the threshold.\n1. The Fox PowerQ is installed in a place with poor ventilation.\n2. The ambient temperature exceeds the upper threshold.\n3. The Fox PowerQ is not working properly.", "suggestion": "1. Check the ventilation and ambient temperature at the Fox PowerQ installation position.\n2. If the ventilation is poor or the ambient temperature exceeds the upper threshold, improve the ventilation and heat dissipation.\n3. If the ventilation and ambient temperature both meet requirements, contact your installer.", "section": "5.1 Troubleshooting", "page": 73}, {"code": "1095", "name": "E-STOP Trigger", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "Emergency Stop Switch triggered.", "suggestion": "1. Check the Emergency Stop Switch if it is pushed.\n2. Check the Emergency Stop Switch cable if the Emergency Stop Switch is open.\n3. Check whether the Emergency Stop Switch cable is connected to the correct connector of the Fox PowerQ.\n4. If the fault persists, contact your installer.", "section": "5.1 Troubleshooting", "page": 73}, {"code": "1109", "name": "Leak Current CT Self-checking Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "Residual Current CT check failure. The insulation impedance of the input side to PE decreased.", "suggestion": "1. If it is triggered accidentally, the external power cable may be abnormal temporarily. The Fox PowerQ automatically recovers after the fault is rectified.\n2. If the alarm is triggered frequently or persists, check that the impedance between the PV string and ground is not below the lower threshold.", "section": "5.1 Troubleshooting", "page": 73}, {"code": "1122", "name": "Ambient Overtemperature", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The inner temperature of Fox PowerQ is higher than the upper threshold.\n1. The Fox PowerQ is installed in a place with poor ventilation.\n2. The ambient temperature exceeds the upper threshold.\n3. The Fox PowerQ is not working properly.", "suggestion": "1. Check the ventilation and ambient temperature at the Fox PowerQ installation position.\n2. If the ventilation is poor or the ambient temperature exceeds the upper threshold, improve the ventilation and heat dissipation.\n3. If the ventilation and ambient temperature both meet requirements, contact your installer.", "section": "5.1 Troubleshooting", "page": 74}, {"code": "1124", "name": "Low Insulation Impedance Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "Low Insulation Resistance is below than the value of protection.\n1. The PV string is shorted to PE.\n2. The PV string has been operating in a moist environment for a long time.", "suggestion": "1. Check the impedance between the PV array output and PE, and eliminate short circuits and poor insulation points.\n2. Check whether the Fox PowerQ PE cable is properly connected.\n3. If you are sure that the impedance is less than the value of protection in a cloudy or rainy environment, reset insulation resistance protection.", "section": "5.1 Troubleshooting", "page": 74}, {"code": "1126", "name": "Leak Current Sampling Channel Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "Residual Current CT check failure. The insulation impedance of the input side to PE decreased.", "suggestion": "1. If it is triggered accidentally, the external power cable may be abnormal temporarily. The Fox PowerQ automatically recovers after the fault is rectified.\n2. If the alarm is triggered frequently or persists, check that the impedance between the PV string and ground is not below the lower threshold.", "section": "5.1 Troubleshooting", "page": 74}, {"code": "1127", "name": "Main Panel Over Load Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "Main panel current exceeds the set value.", "suggestion": "Check if the total home loads exceed the specification.", "section": "5.1 Troubleshooting", "page": 75}, {"code": "1134", "name": "Hub Install Setting Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "'Hub Install' parameter settings do not match actual installation, or communication between the Hub and the inverter is abnormal.", "suggestion": "1. Check whether the 'Hub Install' parameter settings match the actual installation. If no Hub is installed on-site, set the 'Hub Install' parameter on the inverter to 'No Hub Install'. If a Hub is installed, verify the communication wiring between the Hub and the inverter.\n2. If the fault still exists, contact your installer.", "section": "5.1 Troubleshooting", "page": 75}, {"code": "1136", "name": "Load Overpower Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The power of the Off-Grid Load is higher than the upper threshold in the Off-Grid Mode.", "suggestion": "Check if the power of the Off-Grid Load exceeds the permitted value.", "section": "5.1 Troubleshooting", "page": 75}, {"code": "1137", "name": "INV Low Voltage Fault Under Off-grid", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The output voltage is below the lower threshold in the Off-Grid Mode.", "suggestion": "1. Check if the power of the Off-Grid Load exceeds the permitted value.\n2. Check if the output is shorted.", "section": "5.1 Troubleshooting", "page": 75}, {"code": "1144", "name": "Arc Self-checking Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The PV string power cable arcs or is in poor contact.", "suggestion": "Check whether the string circuit arcs or is in poor contact. After the fault is rectified, manually clear the alarm and then start again.", "section": "5.1 Troubleshooting", "page": 75}, {"code": "1145", "name": "Arc Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The sampling circuit of the AFCI circuit is not operating correctly.", "suggestion": "Check whether the string circuit arcs or is in poor contact. After the fault is rectified, manually clear the alarm and then start again.", "section": "5.1 Troubleshooting", "page": 76}, {"code": "1154", "name": "INV Overcurrent Permanent Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The grid voltage drops dramatically or the power grid or the output load is short-circuited. As a result, the Fox PowerQ transient output current exceeds the upper threshold and, which triggers the Fox PowerQ protection.", "suggestion": "1. The Fox PowerQ monitors its external working conditions in real time. And it can automatically recover after the fault is rectified.\n2. If the alarm is triggered frequently and affects the power production of the PV plant, check whether grid or the output is overloaded or short-circuited. If the fault persists, contact your installer.", "section": "5.1 Troubleshooting", "page": 76}, {"code": "1168", "name": "INVL2 Overcurrent Permanent Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The grid voltage drops dramatically or the power grid or the output load is short-circuited. As a result, the Fox PowerQ transient output current exceeds the upper threshold and, which triggers the Fox PowerQ protection.", "suggestion": "1. The Fox PowerQ monitors its external working conditions in real time. And it can automatically recover after the fault is rectified.\n2. If the alarm is triggered frequently and affects the power production of the PV plant, check whether grid or the output is overloaded or short-circuited. If the fault persists, contact your installer.", "section": "5.1 Troubleshooting", "page": 76}, {"code": "1172", "name": "Leak Current Permanent Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The insulation impedance of the input side to PE decreases when the Fox PowerQ is operating.", "suggestion": "1. If the alarm is triggered accidentally, the external power cable may be abnormal temporarily. The Fox PowerQ automatically recovers after the fault is rectified.\n2. If the alarm is triggered frequently or persists, check that the impedance between the PV string and ground is not below the lower threshold.", "section": "5.1 Troubleshooting", "page": 76}, {"code": "1217", "name": "Transient Overcurrent during BDC Charging", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The Battery DC charge current is higher than the upper threshold. 1. The battery is faulty.", "suggestion": "1. If the FAULT indicator on the front of the battery pack is ON or flashing, contact your installer.\n2. Check that the communications cable and power cable between the Fox PowerQ and the battery are properly connected.\n3. Send a shutdown command on the app. Turn off the AC output switch, DC input switch, and battery switch in order, and then turn on the battery switch, AC output switch, and DC input switch in sequence after 5 minutes.\n4. If the alarm still exists, contact your installer.", "section": "5.1 Troubleshooting", "page": 77}, {"code": "1218", "name": "Transient Overcurrent during BDC Discharging", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The Battery DC discharge current is higher than the upper threshold. 1. The battery is faulty. 2. The battery SOC is too low.", "suggestion": "1. If the FAULT indicator on the front of the battery pack is ON or flashing, contact your installer.\n2. Check that the communications cable and power cable between the Fox PowerQ and the battery are properly connected.\n3. Send a shutdown command on the app. Turn off the AC output switch, DC input switch, and battery switch in order, and then turn on the battery switch, AC output switch, and DC input switch in sequence after 5 minutes.\n4. If the alarm still exists, contact your installer.", "section": "5.1 Troubleshooting", "page": 77}, {"code": "1229", "name": "BDC Overtemperature Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The temperature of battery DC IGBT is higher than the upper threshold.\n1. The Fox PowerQ is installed in a place with poor ventilation.\n2. The ambient temperature exceeds the upper threshold.\n3. The Fox PowerQ is not working properly.", "suggestion": "1. Check the ventilation and ambient temperature at the Fox PowerQ installation position.\n2. If the ventilation is poor or the ambient temperature exceeds the upper threshold, improve the ventilation and heat dissipation.\n3. If the ventilation and ambient temperature both meet requirements, contact your installer.", "section": "5.1 Troubleshooting", "page": 78}, {"code": "1242", "name": "BDC Average Low Voltage Fault (Total battery voltage is below undervoltage value in non-charging mode)", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "1. The battery is faulty.", "suggestion": "1. If the FAULT indicator on the front of the battery pack is ON or flashing, contact your installer.\n2. Check that the communications cable and power cable between the Fox PowerQ and the battery are properly connected.\n3. Send a shutdown command on the app. Turn off the AC output switch, DC input switch, and battery switch in order, and then turn on the battery switch, AC output switch, and DC input switch in sequence after 5 minutes.\n4. If the alarm still exists, contact your installer.", "section": "5.1 Troubleshooting", "page": 78}, {"code": "1247", "name": "Reversed Battery Polarity Connection Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "The battery output is reversely connected.", "suggestion": "Check whether the battery output is reversely connected.", "section": "5.1 Troubleshooting", "page": 78}, {"code": "1248", "name": "BDC Overload Fault", "severity": "Major", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "1. The battery is faulty. 2. The battery SOC is too low.", "suggestion": "1. Check that the communications cable and power cable between the Fox PowerQ and the battery are properly connected.\n2. Send a shutdown command on the app. Turn off the AC output switch, DC input switch, and battery switch in order, and then turn on the battery switch, AC output switch, and DC input switch in sequence after 5 minutes.\n3. If the alarm still exists, contact your installer.", "section": "5.1 Troubleshooting", "page": 79}, {"code": "1281", "name": "Communication Fault between Communication Board and Main DSP", "severity": "Minor", "action": "Alarm reporting", "possible_cause": "1. The communication cables are not connected properly.\n2. The communication is interfered.", "suggestion": "1. Turn off the AC output switch, DC input switch, and battery switch in order, and then turn on the battery switch, AC output switch, and DC input switch in sequence after 2 minutes.\n2. If the fault still exists, contact your installer.", "section": "5.1 Troubleshooting", "page": 79}, {"code": "1283", "name": "Communication Fault between Communication Board and BMS", "severity": "Minor", "action": "Alarm reporting", "possible_cause": "1. The communication cables are not connected well.\n2. The communication cables are too long or do not use shielded twisted pair with drain wire.", "suggestion": "Shut down the battery and check the communication cables and power cable between the Fox PowerQ and the battery are properly connected.", "section": "5.1 Troubleshooting", "page": 79}, {"code": "1284", "name": "Communication Fault between Communication Board and Built-in Meter", "severity": "Minor", "action": "Alarm reporting", "possible_cause": "The RS485 communication cables of the Built-in Meter are not properly connected.", "suggestion": "1. Turn off the AC output switch, DC input switch, and battery switch in order, and then turn on the battery switch, AC output switch, and DC input switch in sequence after 2 minutes.\n2. If the fault still exists, contact your installer.", "section": "5.1 Troubleshooting", "page": 79}, {"code": "1285", "name": "Communication Fault between Communication Board and Grid Meter", "severity": "Minor", "action": "Alarm reporting", "possible_cause": "The RS485 communication cables of the Grid Meter are not properly connected.", "suggestion": "Check that the communications cable and power cable between the Fox PowerQ and the Meter are properly connected.", "section": "5.1 Troubleshooting", "page": 79}, {"code": "1286", "name": "Communication Board Flash Writing Fault", "severity": "Minor", "action": "Alarm reporting", "possible_cause": "1. The Flash IC is interfered.\n2. Flash IC fails.", "suggestion": "1. Turn off the AC output switch, DC input switch, and battery switch in order, and then turn on the battery switch, AC output switch, and DC input switch in sequence after 2 minutes.\n2. If the fault still exists, contact your installer.", "section": "5.1 Troubleshooting", "page": 80}, {"code": "1287", "name": "RTC Read-Write Fault", "severity": "Minor", "action": "Alarm reporting", "possible_cause": "The RTC communication is interfered.", "suggestion": "1. Turn off the AC output switch, DC input switch, and battery switch in order, and then turn on the battery switch, AC output switch, and DC input switch in sequence after 2 minutes.\n2. If the fault still exists, contact your installer.", "section": "5.1 Troubleshooting", "page": 80}, {"code": "1288", "name": "Communication Fault between Communication Board and HUB Board", "severity": "Minor", "action": "Shutdown, alarm reporting, and automatic recovery after the fault is rectified.", "possible_cause": "1. The RS485 communication cables are not properly connected.\n2. The RS485 communication cables are too long or do not use shielded twisted pair with drain wire.", "suggestion": "1. Check whether the RS485 communication cable between Fox PowerQ and FOX Hub G2, also between Fox PowerQ units, are properly connected.\n2. Check whether the length of the communication cable exceeds the upper threshold in the specification, and whether it is shielded twisted pair with drain wire.\n3. Turn off the AC output switch, DC input switch, and battery switch in order, and then turn on the battery switch, AC output switch, and DC input switch in sequence after 2 minutes.\n4. If the fault still exists, contact your installer.", "section": "5.1 Troubleshooting", "page": 80}, {"code": "1289", "name": "Solar Meter Communication Fault", "severity": "Minor", "action": "Alarm reporting", "possible_cause": "The RS485 communication cables of the Solar Meter are not properly connected.", "suggestion": "Check the RS485 communication cables of the Solar Meter are properly connected.", "section": "5.1 Troubleshooting", "page": 80}, {"code": "1290", "name": "GEN Meter Communication Fault", "severity": "Minor", "action": "Alarm reporting", "possible_cause": "The RS485 communication cables of the GEN Meter are not properly connected.", "suggestion": "Check whether the RS485 communication cables of the GEN Meter are properly connected.", "section": "5.1 Troubleshooting", "page": 81}], "led_states": {"inverter": [{"dc_status": "Solid Green", "ac_status": "Solid Green", "off_grid": "Off", "alarm": "Off", "meaning": "The PCS is running in on-grid state and exporting power to the power grid."}, {"dc_status": "Blinking Green (1s on, 1s off)", "ac_status": "Off", "off_grid": "Off", "alarm": "Off", "meaning": "The DC is on and the AC is off in on-grid mode."}, {"dc_status": "Off", "ac_status": "Blinking Green (1s on, 1s off)", "off_grid": "Off", "alarm": "Solid Red or Blinking Red", "meaning": "The DC is off and the AC is on."}, {"dc_status": "Blinking Green (1s on, 1s off)", "ac_status": "Blinking Green (1s on, 1s off)", "off_grid": "Off", "alarm": "Solid Red or Blinking Red", "meaning": "The DC is on, the AC is on, and the PCS is starting up."}, {"dc_status": "Off", "ac_status": "Off", "off_grid": "Off", "alarm": "Solid Red", "meaning": "Both the DC and AC are off in on-grid mode (Fault condition)."}, {"dc_status": "Solid Green", "ac_status": "Solid Green", "off_grid": "Solid Green", "alarm": "Off", "meaning": "The PCS is running in backup state (Off-grid power delivery)."}, {"dc_status": "Blinking Green (1s on, 1s off)", "ac_status": "Off", "off_grid": "Solid Green", "alarm": "Solid Red or Blinking Red", "meaning": "The DC is on and the PCS has no output in backup state."}, {"dc_status": "Off", "ac_status": "Off", "off_grid": "Solid Green", "alarm": "Solid Red", "meaning": "Both the DC and AC are off in backup state."}, {"dc_status": "Off", "ac_status": "Off", "off_grid": "Off", "alarm": "Off", "meaning": "Both the DC and AC are completely off (System unpowered)."}], "battery_faults": [{"fault": "Under Voltage Fault", "battery_status": "Solid Red", "led1": "Off", "led2": "Off", "led3": "Off", "led4": "Solid Green"}, {"fault": "Over Voltage Fault", "battery_status": "Solid Red", "led1": "Off", "led2": "Off", "led3": "Solid Green", "led4": "Off"}, {"fault": "Over Temperature Fault", "battery_status": "Solid Red", "led1": "Off", "led2": "Off", "led3": "Solid Green", "led4": "Solid Green"}, {"fault": "Under Temperature Fault", "battery_status": "Solid Red", "led1": "Off", "led2": "Solid Green", "led3": "Off", "led4": "Off"}, {"fault": "Discharge Over Current", "battery_status": "Solid Red", "led1": "Off", "led2": "Solid Green", "led3": "Off", "led4": "Solid Green"}, {"fault": "Charge Over Current", "battery_status": "Solid Red", "led1": "Off", "led2": "Solid Green", "led3": "Solid Green", "led4": "Off"}, {"fault": "Discharge Over Power", "battery_status": "Solid Red", "led1": "Off", "led2": "Solid Green", "led3": "Solid Green", "led4": "Solid Green"}, {"fault": "Charge Over Power", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Off", "led3": "Off", "led4": "Off"}, {"fault": "Pre-charge Failed", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Off", "led3": "Off", "led4": "Solid Green"}, {"fault": "Short Circuit Protection", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Off", "led3": "Solid Green", "led4": "Off"}, {"fault": "AFE Communication Failed", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Off", "led3": "Solid Green", "led4": "Solid Green"}, {"fault": "Module Addressing Failed", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Off", "led4": "Off"}, {"fault": "IVU Communication Failed", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Off", "led4": "Solid Green"}, {"fault": "BMU Communication Failed", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Solid Green", "led4": "Off"}, {"fault": "PCS Communication Failed", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Solid Green", "led4": "Solid Green"}, {"fault": "HVB FUSE Fault", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Off", "led4": "Off"}, {"fault": "Module FUSE Fault", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Off", "led3": "Solid Green", "led4": "Off"}, {"fault": "Power Failed", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Off", "led3": "Solid Green", "led4": "Solid Green"}, {"fault": "Internal Total Voltage Sampling Failed", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Off", "led4": "Off"}, {"fault": "Temperature Sampling Failed", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Off", "led4": "Solid Green"}, {"fault": "Relay Adhesion", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Solid Green", "led4": "Off"}, {"fault": "Relay Not Close", "battery_status": "Solid Red", "led1": "Off", "led2": "Solid Green", "led3": "Solid Green", "led4": "Solid Green"}, {"fault": "Relay Drive Failed", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Off", "led4": "Off"}, {"fault": "Single Cell 0V Fault", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Off", "led4": "Solid Green"}, {"fault": "Temperature High Permanent Failed", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Off", "led3": "Solid Green", "led4": "Off"}, {"fault": "Single Voltage High Permanently", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Off", "led3": "Solid Green", "led4": "Solid Green"}, {"fault": "SOH Low Protection", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Off", "led4": "Off"}, {"fault": "AFE Failed (UV/OV/UT/OT)", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Off", "led4": "Solid Green"}, {"fault": "Shutdown Failed", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Solid Green", "led4": "Off"}, {"fault": "Other Faults", "battery_status": "Solid Red", "led1": "Solid Green", "led2": "Solid Green", "led3": "Solid Green", "led4": "Solid Green"}], "smart_wilan": [{"indicator": "Red light", "status": "Blinking", "instructions": "Not connected to the server"}, {"indicator": "Red light", "status": "Solid on", "instructions": "Connected to the server"}, {"indicator": "Green light", "status": "Blinking", "instructions": "Data transmission"}]}, "quick_rules": [{"topic": "Capacitor Discharge Time", "keywords": ["discharge", "capacitor", "residual", "wait", "open cover", "touch", "5 min", "five minutes"], "answer": "Wait at least 5 minutes after powering off before opening the upper or lower covers. Hazardous residual voltage remains in the inverter capacitors.", "quote": "There is residual voltage in the inverter which needs 5 min to discharge. Wait 5 min before you open the upper cover or the lower cover.", "section": "1.2 Symbols Used & 1.3.5 Maintenance Safety", "page": 3}, {"topic": "Voltage Measurement Wait Time", "keywords": ["measure", "multimeter", "voltage", "15 min", "fifteen minutes", "power off", "testing"], "answer": "After powering off the equipment, wait 15 minutes before measuring voltage and current with professional instruments to verify zero energy state.", "quote": "After the equipment is powered off for 15 minutes, measure the voltage and current with professional instrument. Only when there is no voltage nor current can operators who wear protective equipment operate and maintain the equipment.", "section": "1.3.5 Maintenance Safety", "page": 10}, {"topic": "Remote Shutdown & E-STOP Reset Recovery", "keywords": ["estop", "e-stop", "emergency stop", "remote shutdown", "reset", "clockwise", "key off", "3 seconds"], "answer": "To manually restore power after remote shutdown or E-STOP: Press the E-STOP button down and hold for 3 seconds, then rotate the button clockwise to release it.", "quote": "press the E-STOP button and wait for 3 seconds; then rotate the button clockwise to release it. If the E-STOP button is released too late, it may cause a complete power loss of the Fox PowerQ's auxiliary power supply. In such cases, a black start is required", "section": "5.1 Troubleshooting (E-STOP Note)", "page": 81}, {"topic": "Canada FOX Hub G2 Service Panel Restriction", "keywords": ["canada", "service panel", "hub g2", "main panel", "utility meter", "canadian"], "answer": "In Canada, FOX Hub G2 CANNOT function as a service panel. A separate Main Panel must be installed as a service panel between the FOX Hub G2 and the utility meter.", "quote": "In Canada, the FOX Hub G2 cannot function as a service panel, so add a Main Panel as a service panel between the FOX Hub G2 and utility meter.", "section": "2.3.2 System with FOX Hub G2", "page": 51}, {"topic": "Installation Clearances & Distances", "keywords": ["clearance", "distance", "spacing", "top", "side", "wall", "window", "hvac", "dimensions"], "answer": "Clearances: Top MIN 300 mm (11.8 in); Side MIN 200 mm (7.8 in), RECOMMENDED 800 mm (31.5 in); Base > 30 mm (1.18 in) against wall. Separation from openings (windows, doors, HVAC inlets): MIN 91.4 cm (3 ft). Recommended FOX Hub G2 mounting height: 41 in (1040 mm).", "quote": "MIN 11.8in.(300mm) top, Recommended 31.5in.(800mm) / MIN 7.8in.(200mm) side. The base needs to be more than 1.18in. (30mm) against the wall. The recommended installation height of the FOX Hub G2 is 41 in. (1040 mm). The minimum separation distance from openings is 91.4cm/3ft.", "section": "2.2.2 System Installation Space & 2.2.3", "page": 43}, {"topic": "Service Panel Main Breaker & Line Barriers", "keywords": ["breaker", "service panel", "main breaker", "eaton", "csr2200n", "ticsr300c", "bonding jumper"], "answer": "When FOX Hub G2 is used as the service panel: Main breaker must be Eaton CSR2200N with Eaton TICSR300C line side barriers. Apply 'SERVICE DISCONNECT' label. When NOT used as service panel, remove the bonding jumper.", "quote": "When the FOX Hub G2 is used as the service panel, a. main breaker (Eaton CSR2200N) and line side barriers (Eaton TICSR300C) need to be installed; b. labels of 'SERVICE DISCONNECT' and 'SUITABLE FOR USE AS SERVICE EQUIPMENT ONLY IN USA WHEN EQUIPPED WITH MAIN BREAKER' shall be applied. When the FOX Hub G2 is not used as the service panel, bonding jumper needs to be removed.", "section": "2.2.4 Installing FOX Hub G2 as Service Panel", "page": 46}, {"topic": "Cable Distance from Heat Generating Parts", "keywords": ["cable", "heat", "routing", "distance", "heatsink", "thermal"], "answer": "When routing cables, maintain at least 30 mm clearance between cables and heat-generating components to protect cable insulation.", "quote": "When routing cables, ensure a distance of at least 30 mm between the cables and heat-generating components or areas to protect the insulation layer of cables from aging and damage.", "section": "1.3.4 Operation Safety", "page": 9}, {"topic": "Smart Load Reconnection Threshold", "keywords": ["smart load", "reconnect", "hysteresis", "threshold", "soc", "off-grid"], "answer": "In off-grid mode, smart loads will not be reconnected until the Fox PowerQ actual SOC is 10% higher than the programmed SOC threshold (e.g. if set to 25%, reconnects at 35%).", "quote": "The smart loads will not be reconnected until the Fox PowerQ actual SOC is 10% higher than the SOC threshold. For example, if the SOC threshold is set to 25%, the smart loads will not be reconnected until SOC reaches 35%.", "section": "2.5 Key Functions (Smart Loads)", "page": 60}, {"topic": "Low Temperature Breaker Limit", "keywords": ["temperature", "cold", "breaker", "overload", "0 degree", "freezing"], "answer": "Circuit breakers cannot be relied upon for overload protection when installed below 0°C. Separate overload protection must be provided per CEC/NEC.", "quote": "Circuit breaker cannot be relied on to provide overload protection when installed below 0 degree C. Separated overload protection shall be provided as required CEC and NEC if ambient temperature is below 0 degree C.", "section": "2.5 Key Functions Note", "page": 61}, {"topic": "Recommended Standby Generator", "keywords": ["generator", "standby", "generac", "backup generator"], "answer": "The standby generator officially recommended for use with the FOX Hub G2 is the GENERAC Guardian Series.", "quote": "The standby generator recommended is GENERAC Guardian Series.", "section": "2.3.2 System with FOX Hub G2", "page": 56, "doc": "manual"}, {"topic": "Commissioning Checklist (7 Items — Necessary vs Optional)", "keywords": ["commission", "commissioning", "checklist", "step 6", "necessary", "optional", "setup"], "answer": "Step 6 Commissioning Checklist: 1. Time Zone (Necessary), 2. Energy Mode (Necessary), 3. Zero Back-feed (Optional), 4. Service Panel Parameter (Optional — only needed when FOX Hub G2 is NOT used as a service panel), 5. Grid Code (Optional — only needed when selling to countries except US), 6. Existing Solar Inverter Power (Optional — only needed in Existing/AC-Coupled System), 7. Charge from Grid (Optional — only needed when main breaker cannot support inverter output during full load).", "quote": "1. Time Zone: Necessary | 2. Energy Mode: Necessary | 3. Zero Back-feed: Optional | 4. Service Panel Parameter: Optional (Only needed when the FOX Hub G2 is not used as a service panel) | 5. Grid Code: Optional (Only needed when selling to countries except US; Change \"USA\" into your own country) | 6. Existing Solar Inverter Power: Optional (Only needed in Existing System) | 7. Charge from Grid: Optional (Only needed when main breaker cannot support inverter output during full load)", "section": "CG-5 Step 6: Commissioning Checklist", "page": 8, "doc": "commission"}, {"topic": "FoxCloud2.0 WiFi & Bluetooth Network Setup (2.4GHz Rule)", "keywords": ["wifi", "wi-fi", "2.4ghz", "5ghz", "bluetooth", "wlan", "wilan", "network", "foxcloud", "dl_", "ems_"], "answer": "Turn on phone Bluetooth in advance. In FoxCloud2.0, tap '...' at the top-right corner and select 'WLAN Configuration' (or 'Go to connect' during registration). Select your Smart WiLAN device (DL_... or EMS_...) or scan its SN QR code. IMPORTANT: Your Wi-Fi MUST be set to 2.4GHz (5GHz will fail). After submitting credentials, it takes about 1 minute for the device to connect.", "quote": "If your WiFi is 5G Hz, please set it to 2.4G Hz, otherwise, network configuration may fail. Note: It takes about 1min for the device to connect the network.", "section": "CG-3 Step 3: WLAN Configuration & Smart WiLAN", "page": 5, "doc": "commission"}, {"topic": "Smart WiLAN LED Light Indications", "keywords": ["smart wilan", "wilan", "dongle", "datalogger", "red light blinking", "green light blinking", "server"], "answer": "Smart WiLAN LED Indicator Table: Red light Blinking = Not connected to the server; Red light Solid on = Connected to the server; Green light Blinking = Data transmission.", "quote": "Light indication on the Smart WiLAN — Red light Blinking: Not connected to the server | Red light Solid on: Connected to the server | Green light Blinking: Data transmission", "section": "CG-3 Step 3: WLAN Configuration & Smart WiLAN", "page": 6, "doc": "commission"}, {"topic": "Setting Zero Back-feed (Export Limit)", "keywords": ["zero back-feed", "backfeed", "back-feed", "export limit", "exportlimit", "feed grid", "item 3"], "answer": "To configure Zero Back-feed on the 'Device' dashboard: Select 'Hub' (FOX Hub G2) -> tap 'Settings' -> tap 'ExportLimit' -> set 'PowerLimitOfFeedGrid' to 'Enable' and set 'PowerLimitPercentOfFeedGrid' to 0.0 (0-100)%.", "quote": "Item 3: Set the zero back-feed on the \"Device\" dashboard. Settings -> ExportLimit -> PowerLimitOfFeedGrid: Enable, PowerLimitPercentOfFeedG...: 0.0 (0-100)%", "section": "CG-7 Item 3 & Item 4: Zero Back-feed & Service Panel Parameters", "page": 10, "doc": "commission"}, {"topic": "Setting Service Panel Parameters (When Hub G2 is NOT Service Panel)", "keywords": ["service panel param", "hubasservicepanel", "mainpanelcapacity", "item 4", "not used as a service panel"], "answer": "Only needed when FOX Hub G2 is NOT used as a service panel: On the 'Device' dashboard, select 'Hub' (FOX Hub G2) -> tap 'Settings' -> tap 'Service Panel Param' -> set 'HubAsServicePanel' to 'No', fill 'MainPanelCapacity' (e.g., 200A, range 0-1000A) as needed, and tap 'Confirm'.", "quote": "Item 4: Set service panel parameters on the \"Device\" dashboard. Optional (Only needed when the FOX Hub G2 is not used as a service panel). Service Panel Param -> HubAsServicePanel: Select \"No\", MainPanelCapacity: 200 (0-1000)A -> Fill as needed -> Confirm.", "section": "CG-7 Item 3 & Item 4: Zero Back-feed & Service Panel Parameters", "page": 10, "doc": "commission"}, {"topic": "Setting Existing Solar Inverter Power (AC-Couple)", "keywords": ["existing solar", "ac-couple", "ac couple", "othergenerationsystem", "item 6", "retrofit"], "answer": "Only needed in an Existing Solar System (AC-Coupled): On the 'Device' dashboard, select 'Hub' (FOX Hub G2) -> tap 'Settings' -> tap 'AC-Couple' -> enter 'OtherGenerationSystemPower' in kW (0-600kW) and tap 'Confirm'.", "quote": "Item 6: Set the existing solar inverter power on the \"Device\" dashboard. Optional (Only needed in Existing System). Settings -> AC-Couple -> OtherGenerationSystemPow...: 0.00 (0-600)kW -> Confirm.", "section": "CG-8 Item 5 & Item 6: Grid Code & Existing Solar Power", "page": 11, "doc": "commission"}, {"topic": "Setting Charge from Grid Value (EMS)", "keywords": ["charge from grid", "charge by grid", "chargebygrid", "item 7", "main breaker cannot support", "ems"], "answer": "Only needed when the main breaker cannot support inverter output during full load: On the 'Device' dashboard, select 'Hub' (FOX Hub G2) -> tap 'Settings' -> tap 'EMS' -> set 'ChargeByGridEnable' to 'Enable', enter 'ChargeByGridValue' in kW (e.g., 11.40 kW), and tap 'Confirm'.", "quote": "Item 7: Set the charge by grid value on the \"Device\" dashboard. Optional (Only needed when main breaker cannot support inverter output during full load). Settings -> EMS -> ChargeByGridEnable: Enable, ChargeByGridValue: 11.40 kW -> Confirm.", "section": "CG-9 Item 7: Set Charge by Grid Value", "page": 12, "doc": "commission"}, {"topic": "System Turn On & Turn Off Sequence (BAT POWER 3s / 5s)", "keywords": ["turn on", "turn off", "switch on", "switch off", "startup", "shutdown", "bat switch", "bat power", "pv switch", "3s", "5s"], "answer": "TURN ON: 1) Verify all cables connected. 2) Turn ON PV SWITCH on Fox PowerQ (new system) and AC breakers. 3) Turn ON 'BAT SWITCH' first, then press & hold 'BAT POWER' button for 3 seconds and release. 4) Verify DC & AC green LEDs are solid on.\nTURN OFF: 1) Turn OFF PV SWITCH, press & hold 'BAT POWER' for 5 seconds, then turn OFF 'BAT SWITCH' and AC breakers. 2) Wait 5 minutes before opening side cover.", "quote": "Turn on \"BAT SWITCH\" first, then press and hold \"BAT POWER\" button for 3s, and then release it. Check if green lights on the Fox PowerQ are solid on. In case you need to turn off the system: 1. Turn off the PV SWITCH, press and hold \"BAT POWER\" for 5s, and turn off \"BAT SWITCH\" and AC breakers. 2. Wait for 5 minutes before you open the side cover of the Fox PowerQ.", "section": "QIG-8 Section 6: System Turn On & Turn Off", "page": 34, "doc": "qig"}, {"topic": "Wire Gauges, Conduit, Strip Lengths & Torque Specs", "keywords": ["wire gauge", "awg", "torque", "conduit", "gland", "strip", "kcmil", "4/0", "6 awg", "10 awg", "1.4n.m", "combiner"], "answer": "• Fox PowerQ to Hub G2 (1 unit): L1/L2/N/PE = 6 AWG (3/4\" strip), EMT 2\" conduit (M75 gland), M4 screw torque 1.4 N·m.\n• Parallel Combiner Panel to Hub G2: 2 units = 2 AWG; 3 units = 2/0 AWG; 4 units = 4/0 AWG (Combiner to each PowerQ unit = 6 AWG).\n• FOX Hub G2 Max Cable: L1/L2/N = 4/0 AWG, PE = 4 AWG (Grid as service panel: 6 AWG–4/0 AWG; Backup/Non-backup/Gen/Grid non-service: L1/L2/N 6 AWG–250 kcmil, PE 6 AWG–2/0 AWG).\n• Existing Solar & Smart Loads: L1/L2 = 6 AWG–1/0 AWG, N/PE = 6 AWG–2/0 AWG.\n• PV Strings: 10 AWG (3/16\" strip).\n• Comm & Aux Power: 16 AWG (aux power) & 24–16 AWG (comm), Ø 2.5mm flathead, torque 1.4 N·m.", "quote": "FOX Hub G2: L1/L2/N Max 4/0 AWG, PE 4 AWG, EMT 2\", M75. Fox PowerQ: L1/L2/N/PE 6 AWG (3/4\" strip), M4 1.4N.m. Combiner Panel–FOX Hub G2: 2 units = 2 AWG, 3 units = 2/0 AWG, 4 units = 4/0 AWG. PV Panels: 10 AWG (3/16\" strip).", "section": "QIG-5 Section 5.3 & 5.4: Power & PV Cable Wiring", "page": 18, "doc": "qig"}, {"topic": "Compatible Breaker Models & NEC 2023 705.12 Rules", "keywords": ["compatible breaker", "breaker model", "ch230", "br230", "csr2200n", "bw2200", "nec 2023", "705.12", "busbar"], "answer": "• Grid Main Breaker (Optional): Eaton CSR2100, CSR2125N, CSR2150N, CSR2175N, CSR2200N, BW2100–BW2200, BWH2100N–BWH2200N.\n• Fox PowerQ & Existing Solar Branch Breakers: CH230–CH280, CHF230–CHF250, BR230–BR290, BRH230–BRH290.\n• Smart Circuit Breakers: Same as above plus BR130–BR170, BRH130–BRH170.\n• NEC 2023 705.12(B): (1) Busbar >= main breaker + 125% power source output; (2) Opposite-end feed: Busbar × 120% >= main breaker + 125% power source output; (3) Sum of all OCPD excluding main breaker <= busbar rating.", "quote": "Grid (Main breaker): CSR2100, CSR2125N, CSR2150N, CSR2175N, CSR2200N, BW2100..BW2200, BWH2100N..BWH2200N. Fox PowerQ / Existing Solar / Smart Circuit: CH230..CH280, CHF230..CHF250, BR230..BR290, BRH230..BRH290.", "section": "QIG-4 Section 5.1 & 5.2: FOX Hub G2 Service Panel & Breakers", "page": 17, "doc": "qig"}, {"topic": "RS485 Communication Chain, 120Ω Resistors & Max Cable Length", "keywords": ["120", "resistor", "terminating", "p5", "p4", "50m", "5m", "communication cable", "shielded twisted", "daisy chain"], "answer": "1) In the LAST Fox PowerQ unit in the communication chain (N ≤ 4), plug the 4-pin P5 socket with two terminating 120Ω resistors (included in FOX Hub G2 box).\n2) Use shielded twisted pair cable with drain wire (24–16 AWG for comm, 16 AWG for aux power, torque 1.4 N·m).\n3) Maximum cable length: 50 m between FOX Hub G2 and Fox PowerQ #1, and 5 m between adjacent Fox PowerQ units.", "quote": "1. In the last Fox PowerQ in the communication chain, plug the 4-pin P5 socket with two terminating 120 ohm resistors. 2. The twisted cables use shielded twisted pair with drain wire. 3. The maximum cable lengths between FOX Hub G2 and Fox PowerQ #1, and between Fox PowerQ units are 50m and 5m, respectively.", "section": "QIG-6 Section 5.5: Communication & Auxiliary Power Wiring", "page": 28, "doc": "qig"}, {"topic": "CT Wiring (Grid CTs, Solar CT, Generator CTs)", "keywords": ["ct", "current transformer", "grid ct", "solar ct", "gen ct", "white", "blue", "arrow", "250a", "100a"], "answer": "FOX Hub G2 includes four 250A CTs and one 100A CT.\n• Grid CTs: Clamp I2 on L2 and I1 on L1 (arrows pointing toward FOX Hub G2 / Main Panel). Wire I1* (White), I1 (Blue), I2* (White), I2 (Blue) to Grid CTs block.\n• Solar CT (AC-Couple only): Clamp on L2 (arrow pointing toward Hub G2 / Main Panel). Wire I* (White), I (Blue) to Solar CT block.\n• GEN CTs (Optional): Clamp I2 on Gen L2, I1 on Gen L1 (arrows pointing toward Hub G2). Wire I1* (White), I1 (Blue), I2* (White), I2 (Blue).", "quote": "Solar CT (Only for AC Couple): White -> I*, Blue -> I. GEN CTs & Grid CTs: I1* (White), I1 (Blue), I2* (White), I2 (Blue).", "section": "QIG-7 Section 5.6, 5.7 & 5.8: CT, E-STOP & Smart WiLAN Wiring", "page": 30, "doc": "qig"}, {"topic": "PV String Connection Rules (≤ 3 Strings vs 4 Strings)", "keywords": ["pv string", "1a+", "1b+", "mppt", "3 strings", "4 strings", "solar panels"], "answer": "Turn off the DC switch before connecting PV (10 AWG, 3/16\" strip).\n1) If there are ≤ 3 PV strings, preferentially connect them to terminals 1A+/1A−, 2+/2−, and 3+/3−.\n2) If there are 4 PV strings, the number of PV panels connected to terminals 1A+/1A− MUST be identical to the number connected to 1B+/1B−.", "quote": "1. If there are <= 3 PV strings, 3 PV strings are preferentially connected to terminals 1A+, 1A-, 2+, 2-, 3+, 3-. 2. If there are 4 PV strings, the number of PV panels connected to terminals 1A+, 1A- needs to be the same as that connected to terminals 1B+, 1B-.", "section": "QIG-5 Section 5.3 & 5.4: Power & PV Cable Wiring", "page": 27, "doc": "qig"}, {"topic": "Soft Ground Cement Pad Dimensions & Base Connector Orientation", "keywords": ["soft ground", "cement", "slab", "pad", "base", "left side", "660mm", "508mm", "38mm", "ul9540a"], "answer": "• Soft Ground Installation: Pour a cement slab measuring 660 mm (26\") × 508 mm (20\") × 38 mm (1.5\" thick) and mount Fox PowerQ in the center to prevent cracking.\n• Base Orientation: Ensure the base is > 1.18 in. (30 mm) from the wall and that the battery connector is on the LEFT side when installing the base.\n• UL9540A: Passed CSA Group UL9540A unit-level testing (Project 80182817, April 2024) for residential indoor flooring installation.", "quote": "Make sure the connector is on the left side when installing the base. Prepare a cement slab with a dimension: 660mm(26\") x 508mm(20\") x 38mm(1.5\"). Install Fox PowerQ in the middle of the cement slab to prevent cracking.", "section": "QIG-2 Section 3: Dimensions, Space & Mechanical Installation", "page": 7, "doc": "qig"}, {"topic": "External E-STOP Switch P6 Socket Wiring", "keywords": ["p6", "external e-stop", "e-stop wiring", "jumper", "pins 1 and 2"], "answer": "To wire an external E-STOP switch to the FOX Hub G2:\nStep 1: Remove the factory jumper on the P6 socket (labeled E-STOP / GND) inside the FOX Hub G2.\nStep 2: Connect pins 1 and 2 of the P6 socket to the external E-STOP switch.", "quote": "5.7 E-STOP Wiring — Step 1: remove the jumper on the P6 socket of the FOX Hub G2. Step 2: connect the pins 1 and 2 of the P6 to the E-STOP.", "section": "QIG-7 Section 5.6, 5.7 & 5.8: CT, E-STOP & Smart WiLAN Wiring", "page": 33, "doc": "qig"}], "sections": [{"id": "1.1", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Important Information", "page": 2, "summary": "General safety requirements, qualified electrician requirements, void of warranty conditions.", "content": "The devices in the Fox PowerQ energy storage system are electrical devices. Please read this entire document to ensure the proper use of the Fox PowerQ energy storage system. Failure to follow this may void the warranty. This manual is intended for use by qualified electricians. Tasks described can only be performed by qualified electricians."}, {"id": "1.2", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Symbols Used", "page": 2, "summary": "Hazard levels (Danger, Warning, Caution, Note) and hardware safety symbols.", "content": "Danger: indicates a hazardous situation which will result in death or serious injury. Warning: indicates a hazardous situation which could result in death or serious injury. Caution: indicates a hazardous situation which could result in minor or moderate injury. Beware of burning: case temperature may exceed 140°F (60°C). Danger to life due to high voltage: residual voltage needs 5 min to discharge before opening covers."}, {"id": "1.3.2", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Package Safety & Environmental", "page": 5, "summary": "Pre-installation checks, handling heavy units, lifting precautions, avoiding pipes/wires in walls.", "content": "Make sure the product is free of any electrical connections before installation. When installing, if drilling is required, make sure you have avoided pipeline and electric wire in the wall. When handling the product, consider the weight and maintain balance to prevent tipping or falling."}, {"id": "1.3.3", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Electrical Connection Safety", "page": 7, "summary": "Disconnection rules, PPE, voltage testing, ground wire requirements.", "content": "Always make sure equipment and all switches connected are disconnected before electrical connections are made. Wear personal protective equipment and use special insulating tools. Before touching DC cable, always use measuring device to ensure cable is not energized. Equipment must not be connected to PV string requiring positive or negative grounding. Before supplying power, connect ground wire."}, {"id": "1.3.4", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Operation Safety", "page": 9, "summary": "Cable routing (30mm clear of heat), indoor non-habitable locations only, smoke alarm requirement.", "content": "When routing cables, ensure distance of at least 30 mm between cables and heat-generating components. Do not touch enclosure or hot parts (heat sink). Fox PowerQ is only intended to be installed in attached or detached garages, sheds, enclosed utility closets, basements, storage or utility spaces within dwelling units and NOT in habitable living spaces. Installation of smoke alarm devices for indoor installation should be in accordance with local regulations."}, {"id": "1.3.5", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Maintenance Safety", "page": 10, "summary": "15-minute measurement wait time, AC before DC shutdown sequence, nighttime DC switch operation if damaged.", "content": "Before maintenance, disconnect AC circuit breaker on grid side and then DC switch. If fault that may cause personal injury or device damage is found before maintenance, disconnect AC circuit breaker and wait until night before operating DC switch. After equipment is powered off for 15 minutes, measure voltage and current with professional instrument. Always wear protective gloves before operating equipment after it cools down."}, {"id": "1.4", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "PE Connection and Leakage Current", "page": 12, "summary": "Internal RCD operation, trip thresholds (30mA personal, 30/60/150mA slow rising).", "content": "Fox PowerQ incorporates a certified internal RCD (Residual Current Device) to protect against electrocution. Low threshold: 30 mA to protect against rapid changes in leakage (direct contact). Higher threshold: 30 mA, 60 mA, 150 mA per unit for slowly rising leakage currents for fire safety."}, {"id": "2.1", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Technical Specifications", "page": 13, "summary": "Hybrid inverter models (3.8kW to 11.4kW), battery stack configurations (2 to 7 modules, 7.94kWh to 27.79kWh), weights, dimensions, MPPT specs.", "content": "Cube Hybrid Inverter + Batteries: Models US1H-3.8-EQL through US1H-11.4-EQL. Battery modules EQ4000 (81.35 lb / 36.9 kg each, 3.97 kWh usable each). Inverter weight: 112.44 lb (51 kg). Base weight: 7.72 lb (3.5 kg). MPPT voltage range: 80-550V. Max PV input voltage: 600V. Enclosure: Type 4X. Operating temp: -13°F to +131°F (-25°C to +55°C) derating above 104°F (40°C). Noise: <35 dB. Max altitude: 6,560 ft (2000 m). FOX Hub G2: AC current input 200A, rated 48000W, 240Vac split-phase, switchover time <20ms."}, {"id": "2.2.2", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Installation Space and Clearances", "page": 43, "summary": "Clearance distances (top 300mm, side 200mm min / 800mm rec, base 30mm, Hub G2 41in height, 3ft from openings).", "content": "Top clearance: MIN 11.8 in (300 mm). Side clearance: MIN 7.8 in (200 mm), RECOMMENDED 31.5 in (800 mm). Base distance from wall: > 1.18 in (30 mm). FOX Hub G2 mounting height: 41 in (1040 mm). Minimum separation from openings (windows, doors, HVAC inlets): 91.4 cm / 3 ft."}, {"id": "2.2.4", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Installing FOX Hub G2 as Service Panel", "page": 46, "summary": "Eaton CSR2200N breaker, TICSR300C line side barriers, service disconnect label, bonding jumper removal when not service panel.", "content": "When used as service panel: install Eaton CSR2200N main breaker and Eaton TICSR300C line side barriers. Apply labels 'SERVICE DISCONNECT' and 'SUITABLE FOR USE AS SERVICE EQUIPMENT ONLY IN USA WHEN EQUIPPED WITH MAIN BREAKER'. When not used as service panel: bonding jumper needs to be removed. Warning: Do not switch on both generator and grid relays simultaneously."}, {"id": "2.3", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Backup Topologies", "page": 49, "summary": "Whole-home vs partial backup, DC-coupled vs AC-coupled, FOX Hub G2 wiring, Canada rule.", "content": "Whole-home and partial backup configurations. In Canada: FOX Hub G2 cannot function as a service panel; add a Main Panel between Hub G2 and utility meter. Generator support: up to 200A generator, dry contact switch rated 250/30 Vac/Vdc 0.5A/3A. Recommended standby generator is GENERAC Guardian Series."}, {"id": "2.4", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Operating Modes", "page": 57, "summary": "Mandatory, Self-Power, Time of Use (Storage First vs Family Loads First), NEM 3.0, Backup Standby.", "content": "Mandatory Mode: Compulsively charges battery to 100% SOC from solar and grid, or discharges battery for household loads. Self-Power Mode: Stores surplus solar; discharges to meet load deficits. TOU Mode: Storage First (solar charges battery first at peak/off-peak) vs Family Loads First (solar powers home first). NEM 3.0: California feed-in compensation optimization. Backup Standby: Fully charges battery from solar and grid to hold reserve for emergency outage."}, {"id": "2.5", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Key Functions & Smart Loads", "page": 59, "summary": "E-STOP shutdown, On/off grid transitions (<20ms), Off-grid FW function, Full charge protection, Automatic black start, Smart loads (3 circuits).", "content": "Emergency Stop: Shuts down system; home loses power. Smart Loads: 3 circuits controlled via FoxCloud2.0 app. Smart Load 1 is 240V without neutral. In off-grid mode, loads disconnect below threshold and reconnect only when actual SOC is 10% above threshold. Automatic Black Start: At low battery, enters sleep mode and attempts restart at predetermined times using solar."}, {"id": "3.0", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "LED Lightening Descriptions", "page": 62, "summary": "Inverter status LEDs (DC, AC, Off-grid, Alarm) and Battery status & 4-bar SOC LEDs.", "content": "Inverter LEDs: DC Status, AC Status, Off-grid, Alarm. Solid green on DC+AC = exporting to grid. Solid green on DC+AC+Off-grid = backup power active. Battery LEDs: Battery Status (green/red) + 4 SOC LEDs. 4 LEDs indicate 25%, 50%, 75%, 100% SOC during Standby, Discharge, and Charge. Solid red battery status indicates fault mode; combination of 4 SOC LEDs identifies exact fault code."}, {"id": "5.1", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Troubleshooting & Alarms", "page": 67, "summary": "Table 5-1 complete alarm catalogue (Codes 1025 through 1290) and remote shutdown E-STOP reset procedure.", "content": "Contains 49 diagnostic alarm codes covering Grid Over/Undervoltage, Overcurrent, Leakage, Inverter faults, BDC battery overcurrent/overtemperature, and RS485 communication failures. Key recovery note: Remote shutdown recovery requires pressing E-STOP for 3 seconds then rotating clockwise to release."}, {"id": "5.2", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Service and Maintenance", "page": 81, "summary": "Routine maintenance, debris removal, cleaning with damp cloth, vent clearance, contact Fox ESS for internal service.", "content": "Keep Fox PowerQ clear of leaves or foreign objects, particularly between unit and back wall. Keep away from direct sunlight. Clean enclosure surface using soft lightly dampened cloth with water only. Ensure equipment is fully powered off before cleaning. Do not block vents. Maintain safe distance between units and flammable/toxic substances."}, {"id": "6.1", "doc": "manual", "doc_title": "User Manual v1.3c", "title": "Decommissioning", "page": 83, "summary": "Dismantling procedure, 5-minute de-energize wait, packaging specs, storage (-40°C to +70°C).", "content": "Turn off PV/DC switch, battery, AC breakers, and off-grid breaker of FOX Hub G2. Wait 5 minutes for Fox PowerQ and Hub G2 to fully de-energize. Disconnect communication and optional connection wirings. Remove PowerQ and Hub G2 from bracket. Storage temperature: -40°C to +70°C. Stack less than 4 cartons in one stack."}, {"id": "QIG-1", "doc": "qig", "doc_title": "Quick Install Guide v1.1a", "title": "Notice, UL9540A Listing & Section 1–2: Packing Lists & Tools", "page": 1, "summary": "CSA UL9540A listing, Cube Inverter box (A–L), Battery box (EQ4000), FOX Hub G2 box (A–K including 4x 250A CT, 1x 100A CT, 4x 120Ω resistors, E-STOP, Pry bar).", "content": "UL9540A Certification (Page 1): Fox PowerQ Energy Storage System has passed UL9540A unit level testing, suitable for residential indoor flooring installation (Testing Lab: CSA GROUP, Project No. 80182817, April 2024).\n\n1.1 Cube Inverter Package Box (Page 2):\n• A: Cube Inverter (x1) | B: Side Cover (x1) | C: Base (x1) | D: Set Screw (x4) | E: L-shaped Lugs (x2) | F: Sleeve Expansion Bolt M8*60 (x4) | G: Expansion Tube & Screw (x4) | H: Handle (x2) | I: Flat-head Screw (x2) | J: Screw Hole Cap (x2) | K: Cable Sticker (x1) | L: Quick Installation Guide (x1).\n\n1.2 Battery Package Box (Page 2):\n• A: EQ4000 Battery Module (Qty 2–7) | B: Set Screw (x2).\n\n1.3 FOX Hub G2 Package Box (Page 3):\n• A: FOX Hub G2 (x1) | B: Sleeve Expansion Bolt M8*60 (x4) | C: Waterproof Gasket (x4) | D: Smart WiLAN / Smart 4GWiLAN (Optional, x1) | E: 250A Current Transformer (x4) | F: 100A Current Transformer (x1) | G: E-STOP (x1) | H: 120Ω Terminating Resistor (x4) | I: Labels (x3) | J: Installation Paperboard (x1) | K: Pry bar for relays (x1).\n\nSection 2 Required Tools (Pages 3–4): Safety Goggles, Steel Toe Boots, Dust Mask, Helmet, Insulating Gloves, Phillips & Flat-Head Screwdrivers, Wire Stripper, Electric Drill, Adjustable Wrench, Hex Wrench Set, Hole Punch, Level, Tape, Sleeve, Multimeter, Phone."}, {"id": "QIG-2", "doc": "qig", "doc_title": "Quick Install Guide v1.1a", "title": "Section 3: Dimensions, Space & Mechanical Installation (Solid vs Soft Ground)", "page": 4, "summary": "Stack dimensions, multi-unit spacing (500mm min / 800mm rec), base left-connector rule, soft-ground cement pad (660x508x38mm), Hub G2 45–50mm drill depth.", "content": "3.1 Environment (Page 4): Overhead shelter required against sun, rain, and snow.\n3.2 Stack Size (Page 5): Depth 15 in. (380 mm) × Width 22.4 in. (570 mm) × Height 49.6 in. (1262 mm for 4 modules + inverter). Inverter height: 20.2 in. (512 mm); Battery module height: 5.4 in. (138 mm).\n3.3 Installation Space (Page 5): Top MIN 11.8 in. (300 mm). Between multiple Fox PowerQ units (#1–#4) and FOX Hub G2: MIN 19.7 in. (500 mm), Recommended 31.5 in. (800 mm). FOX Hub G2 height: Recommended 41 in. (1040 mm). NOTE: Minimum distance between top of Fox PowerQ and bottom of FOX Hub G2 is 300 mm if Hub G2 is installed directly above PowerQ.\n3.4 Solid Ground Installation (Page 6): Place base > 1.18 in. (30 mm) from wall. IMPORTANT: Make sure the connector is on the LEFT side when installing the base. Anchor with M8*60 bolts, stack EQ4000 modules, use handles (H) to lift Cube Inverter onto stack, and secure L-shaped anti-tip brackets to wall.\n3.4 Soft Ground Installation (Page 7): 1) Prepare a cement slab measuring 660 mm (26\") × 508 mm (20\") × 38 mm (1.5\"). 2) Install Fox PowerQ in the middle of the cement slab to prevent cracking.\n3.5 FOX Hub G2 Mounting (Page 8): Use installation paperboard template, drill 4 holes 45–50 mm deep, mount with M8*60 expansion bolts."}, {"id": "QIG-3", "doc": "qig", "doc_title": "Quick Install Guide v1.1a", "title": "Section 4: Whole-Home & Partial-Home Backup Wiring Diagrams", "page": 8, "summary": "Parallel inverter matching rule, Canada Main Panel rule, DC-Couple & AC-Couple topologies (with/without Hub G2 as Service Panel).", "content": "Parallel Rule (Page 8): Parallel operation requires inverters of identical models, and batteries matching in both model and capacity (up to N ≤ 4 units via Customer Combiner Panel).\nCanada Rule (Pages 9 & 11): In Canada, the FOX Hub G2 cannot function as a service panel; add a Main Panel as a service panel between the FOX Hub G2 and utility meter.\nTopologies Covered (Pages 9–14):\n• 4.1 Whole-home Backup (DC Couple) — Page 9\n• 4.1 Whole-home Backup (AC Couple, with Solar CT in FOX Hub G2) — Page 10\n• 4.2 Partial-home Backup (DC Couple, FOX Hub G2 as Service Panel) — Page 11\n• 4.2 Partial-home Backup (DC Couple, FOX Hub G2 NOT as Service Panel; Grid CT in Main Panel) — Page 12\n• 4.2 Partial-home Backup (AC Couple, FOX Hub G2 as Service Panel) — Page 13\n• 4.2 Partial-home Backup (AC Couple, FOX Hub G2 NOT as Service Panel; Grid CT in Main Panel, Solar CT in Hub G2) — Page 14"}, {"id": "QIG-4", "doc": "qig", "doc_title": "Quick Install Guide v1.1a", "title": "Section 5.1 & 5.2: FOX Hub G2 Internal Layout, Service Panel Setup & Breakers", "page": 15, "summary": "Hub G2 terminals, Eaton TICSR300C barriers, Bonding Jumper removal, Relay pry bar warning, Compatible Eaton CH/BR/CSR/BW breakers, NEC 2023 705.12.", "content": "5.1 FOX Hub G2 Overview (Page 15): Top header blocks (Solar CT, Grid CTs, Hub-Power, COM-IN, COM-OUT, E-STOP, Generator), Smart Circuit breakers (Load 1 L1/L2, Load 2 L1, Load 3 L2), Existing Solar breaker, Fox PowerQ Inverter breaker, Backup Load lugs, Non-backup Load lugs, Neutral Bar Kit, Grid Terminal, Grid Relay, Standby Generator Terminal, Ground Bar Kit, and Bonding Jumper.\n\n5.2 Service Panel Configuration (Pages 16–17):\n1) When FOX Hub G2 IS used as Service Panel: a) Install main breaker and line side barriers (Eaton TICSR300C); b) Apply 'SERVICE DISCONNECT' and 'SUITABLE FOR USE AS SERVICE EQUIPMENT ONLY IN USA WHEN EQUIPPED WITH MAIN BREAKER' labels to black cover.\nWARNING: Do not switch on both generator and grid relays simultaneously. Before toggling the two relays with the pry bar, disconnect the AC breaker and shut down the PowerQ.\n2) When FOX Hub G2 is NOT used as Service Panel: Remove the bonding jumper.\n\n3) Recommended Breaker Models (Page 17):\n• Smart Circuit (Back-fed, Optional): CH230–CH280, CHF230–CHF250, BR230–BR290, BRH230–BRH290, BR130–BR170, BRH130–BRH170\n• Existing Solar & Fox PowerQ Branch Breakers: CH230–CH280, CHF230–CHF250, BR230–BR290, BRH230–BRH290\n• Grid Main Breaker (Optional): CSR2100, CSR2125N, CSR2150N, CSR2175N, CSR2200N, BW2100–BW2200, BWH2100N–BWH2200N\n\n4) NEC 2023 705.12 Current Rating Requirements (Page 18): Covers 705.12(B)(1) 100% rule, 705.12(B)(2) 120% opposite-end rule, and 705.12(B)(3) sum of OCPD rule."}, {"id": "QIG-5", "doc": "qig", "doc_title": "Quick Install Guide v1.1a", "title": "Section 5.3 & 5.4: Power & PV Cable Wiring (AWG Gauges, Strip Lengths & Torques)", "page": 18, "summary": "Complete cable gauge tables for Hub G2, 1–4 parallel PowerQ units, Backup/Non-backup, Grid, Existing Solar, Smart Loads, Generator, and PV strings.", "content": "• Conduit & Gland (Page 18): EMT 2\" conduit, M75 gland (or adapts to 2\" EMT). Max Cable: FOX Hub G2 L1/L2/N = 4/0 AWG, PE = 4 AWG; Fox PowerQ L1/L2/N/PE = 6 AWG.\n• 1 Fox PowerQ to Hub G2 (Page 19): L1, L2, N, PE = 6 AWG (3/4\" strip).\n• 2 to 4 Fox PowerQ Parallel via Combiner Panel (Pages 20–21): PowerQ AC terminal screw M4 torque = 1.4 N·m. Combiner Panel to each PowerQ = 6 AWG. Combiner Panel to FOX Hub G2 minimum wire gauge: 2 units = 2 AWG | 3 units = 2/0 AWG | 4 units = 4/0 AWG.\n• Backup & Non-backup Loads (Pages 21–22): L1, L2, N = 6 AWG – 250 kcmil (3/4\" strip); PE = 6 AWG – 2/0 AWG (3/4\" strip).\n• Grid AC Power (Page 23): Hub G2 as Service Panel: L1/L2/N = 6 AWG – 4/0 AWG (3/4\" strip). Hub G2 NOT Service Panel: L1/L2/N = 6 AWG – 250 kcmil, PE = 6 AWG – 2/0 AWG.\n• Existing Solar Inverter (Page 24): L1, L2 = 6 AWG – 1/0 AWG; N, PE = 6 AWG – 2/0 AWG. Note: Connecting existing solar inverter to Main Panel requires only 1 Fox PowerQ, no generator, and existing solar rating below Fox PowerQ rating.\n• Smart Loads (Page 25): L1, L2 = 6 AWG – 1/0 AWG; N, PE = 6 AWG – 2/0 AWG (supports three loads: 240V/120V/120V or two loads: 240V/240V).\n• Standby Generator (Page 26): L1, L2, N = 6 AWG – 250 kcmil; PE = 6 AWG – 2/0 AWG.\n• 5.4 PV Panels to Fox PowerQ (Page 27): 10 AWG (3/16\" strip). Turn off DC switch first. If ≤ 3 strings, connect to 1A+/1A−, 2+/2−, 3+/3−. If 4 strings, 1A+/1A− and 1B+/1B− must have the exact same number of PV panels."}, {"id": "QIG-6", "doc": "qig", "doc_title": "Quick Install Guide v1.1a", "title": "Section 5.5: Communication, 120Ω Terminating Resistors & Generator Control Wiring", "page": 27, "summary": "P3/P4/P5 daisy-chain wiring, two 120Ω resistors in last unit P5 socket, 50m / 5m max lengths, and Guardian Series generator P7/P8/P9 wiring.", "content": "• Wire Specs (Page 27): 16 AWG (Auxiliary Power) and 24–16 AWG (Shielded twisted pair with drain wire for RS485/CAN), Ø 2.5mm screwdriver, torque 1.4 N·m.\n• Communication Chain Rules (Page 28):\n  1. In the LAST Fox PowerQ unit in the communication chain (N ≤ 4), plug the 4-pin P5 socket with two terminating 120Ω resistors (supplied in FOX Hub G2 box).\n  2. Twisted cables must use shielded twisted pair with drain wire.\n  3. Maximum cable length between FOX Hub G2 and Fox PowerQ #1 is 50 m; maximum cable length between adjacent Fox PowerQ units is 5 m.\n• Standby Generator Control Wiring (Page 29): Connects Guardian Series generator terminals (0, 194, 23, N1, N2, T1) to FOX Hub G2 headers P7 (GND, TRAN, TRAN, ES), P8 (T1, N1, N2, NC, NC, NO1, NO2, COM1, COM2), and P9 (2, 1)."}, {"id": "QIG-7", "doc": "qig", "doc_title": "Quick Install Guide v1.1a", "title": "Section 5.6, 5.7 & 5.8: CT Wiring, External E-STOP (P6) & Smart WiLAN", "page": 30, "summary": "Solar CT, GEN CTs, and Grid CTs orientation & White/Blue pinouts, P6 E-STOP jumper removal, and WiFi/4G/LAN dongle installation.", "content": "• 5.6 Solar CT (AC-Couple Only — Page 30): Clamp on Solar Inverter L2 conductor with arrow pointing toward FOX Hub G2 / Main Panel. Connect White to I* and Blue to I on the Solar CT terminal block.\n• 5.6 GEN CTs (Optional — Page 31): Clamp I2 on Generator L2 and I1 on Generator L1 (arrows pointing toward FOX Hub G2). Connect I1* (White), I1 (Blue), I2* (White), I2 (Blue).\n• 5.6 Grid CTs (Page 32): Clamp I2 on Grid L2 and I1 on Grid L1 (arrows pointing toward FOX Hub G2 / Main Panel). Connect I1* (White), I1 (Blue), I2* (White), I2 (Blue).\n• 5.7 External E-STOP Wiring (Page 33): Step 1: Remove the jumper on the P6 socket (E-STOP / GND) of the FOX Hub G2. Step 2: Connect pins 1 and 2 of P6 to the external E-STOP switch.\n• 5.8 Smart WiLAN & Smart 4GWiLAN (Pages 33–34): Connect Smart WiLAN / 4GWiLAN (or insert RJ45 LAN cable into Smart WiLAN) and plug into the side communication port of the FOX Hub G2."}, {"id": "QIG-8", "doc": "qig", "doc_title": "Quick Install Guide v1.1a", "title": "Section 6: System Turn On & Turn Off Sequence", "page": 34, "summary": "Exact step-by-step power-up (BAT POWER 3s) and shutdown (BAT POWER 5s + 5 min wait) procedures.", "content": "System Turn On Procedure (Page 34):\n1. Ensure all cables are connected properly.\n2. Turn on the PV SWITCH on the Fox PowerQ (Only for New System), and AC breakers (in main panel or service panel).\n3. Turn on 'BAT SWITCH' first, then press and hold 'BAT POWER' button for 3 seconds, and then release it.\n4. Check if green lights on the Fox PowerQ (DC and AC indicators) are solid on.\n\nSystem Turn Off Procedure (Page 34):\n1. Turn off the PV SWITCH, press and hold 'BAT POWER' for 5 seconds, and turn off 'BAT SWITCH' and AC breakers.\n2. Wait for 5 minutes before you open the side cover of the Fox PowerQ (in case of repair)."}, {"id": "CG-1", "doc": "commission", "doc_title": "Commission Guide v1.4b", "title": "Step 1 & 2: Download FoxCloud2.0 & Initial Region/Account Setup", "page": 2, "summary": "Download FoxCloud2.0 app, select North America region, create Installer/Distributor or Owner account.", "content": "Step 1 (Page 2): Scan the QR code to download the FoxCloud2.0 app (App Store or Google Play). After installation, the FoxCloud2.0 icon is displayed on the home screen.\n\nStep 2 (Pages 3-4): Initial App Configuration (First Download Only):\n1. Tap 'Getting Started' and select 'North America' under Select Region.\n2. Tap 'Create an account' -> Select account type: 'I am an installer/distributor' (Create Plant, Monitoring and Analysis, O&M tools) or 'I am an owner'.\n3. Complete Installer/Distributor Registration (Username, Password, Confirm Password, Email, Verification Code -> Next step).\n4. Create or Join Organization (Page 4): Select 'Create' (allows easy management across different accounts and sharing permission) or 'Join' (if member of an agent organization or subordinate installer). Fill Organization Name, Country/Region, Address, Post code, Contact Info, Notes -> Submit."}, {"id": "CG-3", "doc": "commission", "doc_title": "Commission Guide v1.4b", "title": "Step 3: WLAN Configuration & Smart WiLAN LED Indications", "page": 5, "summary": "Bluetooth discovery, 2.4GHz Wi-Fi requirement, manual SN entry, and Smart WiLAN Red/Green LED status table.", "content": "1. Turn on the Bluetooth of your phone in advance.\n2. Tap '...' at the top-right corner of the login screen and select 'WLAN Configuration' (or tap 'Go to connect' during initial registration).\n3. Under Choose Device (Unconfigured), select your datalogger/Smart WiLAN (e.g., DL_... or EMS_...) and tap 'Connecting Network' / 'Connect Network', OR tap 'Enter Manually' to scan/enter the SN code on the Smart WiLAN.\n4. Connect to WiFi: 'If your WiFi is 5G Hz, please set it to 2.4G Hz, otherwise, network configuration may fail.' (2.4G Hz required; 5G Hz not supported). Select your 2.4GHz Wi-Fi network, enter the password, and tap Next.\n5. Configuration Complete: 'Note: It takes about 1min for the device to connect the network.'\n\nLight Indication on the Smart WiLAN (Page 6):\n• Red light (Blinking): Not connected to the server\n• Red light (Solid on): Connected to the server\n• Green light (Blinking): Data transmission"}, {"id": "CG-4", "doc": "commission", "doc_title": "Commission Guide v1.4b", "title": "Step 4 & 5: Create a Plant & Verify Dashboard", "page": 7, "summary": "Sign in to installer account, create plant, bind Smart WiLAN SN code, and verify Plant dashboard.", "content": "Step 4 (Page 7): Sign in to the installer's account and tap 'Create a plant'.\n• Under New Plant, tap 'Add Device (+)' -> select 'General Device' (or Micro Inverter) -> scan the QR code on the Smart WiLAN or enter the SN code.\n• Fill in Plant Information: Plant Profile Image, Plant Name*, Country/Region*, City*, Address*, Post Code*, Time zone*, Agent* -> tap 'Save'.\n\nStep 5 (Page 8): Check system performance on the 'Plant' dashboard (verifying ON GRID / Normal status, LOAD, PV, GRID, BATTERY %, and Today PV Yield)."}, {"id": "CG-5", "doc": "commission", "doc_title": "Commission Guide v1.4b", "title": "Step 6: 7-Item Commissioning Checklist (Necessary vs Optional)", "page": 8, "summary": "Complete table of mandatory and conditional commissioning items after plant creation.", "content": "Step 6 (Page 8): Use the checklist below to make sure the necessary items are completed:\n\n1. Time Zone — NECESSARY\n2. Energy Mode — NECESSARY\n3. Zero Back-feed — OPTIONAL\n4. Service Panel Parameter — OPTIONAL (Only needed when the FOX Hub G2 is not used as a service panel)\n5. Grid Code — OPTIONAL (Only needed when selling to countries except US; Change 'USA' into your own country)\n6. Existing Solar Inverter Power — OPTIONAL (Only needed in Existing System)\n7. Charge from Grid — OPTIONAL (Only needed when main breaker cannot support inverter output during full load)"}, {"id": "CG-6", "doc": "commission", "doc_title": "Commission Guide v1.4b", "title": "Checklist Item 1 & Item 2: Time Zone & Energy Management Mode", "page": 9, "summary": "Configuring Plant Time Zone (Edit Plant) and Work Mode / NEM 3.0 / Smart Circuit (Quick Settings).", "content": "Item 1: Set up the time zone on the 'Plant' dashboard (Page 9):\n• On the Plant dashboard, tap '...' in the top-right corner -> select 'Edit Plant'.\n• Scroll to 'Time zone*', select the correct local time zone, and save.\n\nItem 2: Configure the energy management mode on the 'Plant' dashboard (Page 9):\n• On the Plant dashboard, tap 'Quick Settings Here'.\n• Select 'Work Mode' (e.g., Backup Standby, Self-Power, TOU, Mandatory), and configure 'NEM 3.0', 'Smart Circuit', or 'Active Connection' as required."}, {"id": "CG-7", "doc": "commission", "doc_title": "Commission Guide v1.4b", "title": "Checklist Item 3 & Item 4: Zero Back-feed & Service Panel Parameters", "page": 10, "summary": "Device dashboard settings for FOX Hub G2 ExportLimit (0.0%) and Service Panel Param (HubAsServicePanel = No).", "content": "Item 3: Set the zero back-feed on the 'Device' dashboard (Page 10):\n• Open the 'Device' tab -> select 'Hub' (FOX Hub G2) -> tap 'Settings' -> select 'ExportLimit'.\n• Set 'PowerLimitOfFeedGrid' to 'Enable' and set 'PowerLimitPercentOfFeedGrid' to '0.0' (0-100)%.\n\nItem 4: Set service panel parameters on the 'Device' dashboard (Page 10):\n• Optional — only needed when FOX Hub G2 is NOT used as a service panel.\n• Open the 'Device' tab -> select 'Hub' (FOX Hub G2) -> tap 'Settings' -> select 'Service Panel Param'.\n• Set 'HubAsServicePanel' to 'No' and fill 'MainPanelCapacity' (e.g., 200, range 0-1000A) as needed -> tap 'Confirm'."}, {"id": "CG-8", "doc": "commission", "doc_title": "Commission Guide v1.4b", "title": "Checklist Item 5 & Item 6: Grid Code & Existing Solar Power (AC-Couple)", "page": 11, "summary": "Setting Inverter Country/Grid Code and FOX Hub G2 AC-Couple existing solar inverter kW rating.", "content": "Item 5: Set the grid code on the 'Device' dashboard (Page 11):\n• Optional — only needed when selling to countries except US (change 'USA' into your own country).\n• Open the 'Device' tab -> select 'Inverter' -> tap 'Settings' -> select 'Country' -> set Boot/Shutdown and Country/Region code.\n\nItem 6: Set the existing solar inverter power on the 'Device' dashboard (Page 11):\n• Optional — only needed in an Existing Solar System (AC-Couple).\n• Open the 'Device' tab -> select 'Hub' (FOX Hub G2) -> tap 'Settings' -> select 'AC-Couple'.\n• Enter 'OtherGenerationSystemPower' in kW (0.00 to 600kW) -> tap 'Confirm'."}, {"id": "CG-9", "doc": "commission", "doc_title": "Commission Guide v1.4b", "title": "Checklist Item 7: Set Charge by Grid Value (EMS)", "page": 12, "summary": "Enabling ChargeByGridEnable and setting ChargeByGridValue (kW) on FOX Hub G2 EMS settings.", "content": "Item 7: Set the charge by grid value on the 'Device' dashboard (Page 12):\n• Optional — only needed when the main breaker cannot support inverter output during full load.\n• Open the 'Device' tab -> select 'Hub' (FOX Hub G2) -> tap 'Settings' -> select 'EMS'.\n• Set 'ChargeByGridEnable' to 'Enable' and enter 'ChargeByGridValue' in kW (e.g., 11.40 kW) -> tap 'Confirm'."}]};
+
+    let speechRecognition = null;
+    let isNativeBridge = false;
+    let isListening = false;
+    let currentFilter = 'all';
+    let currentDocFilter = 'all';
+    let allManualExpanded = false;
+
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        if (!window.navigator.standalone && !window.matchMedia('(display-mode: standalone)').matches) {
+          const b = document.getElementById('pwa-install-banner');
+          if (b) b.style.display = 'block';
+        }
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('./sw.js').catch(() => {});
+        }
+      } catch (e) {}
+      try { initSpeechRecognition(); } catch (e) { console.error(e); }
+      try { renderDefaultAssistantView(); } catch (e) { console.error(e); }
+      try { renderAlarmDirectory(); } catch (e) { console.error(e); }
+      try { renderLeds(); } catch (e) { console.error(e); }
+      try { renderManualSections(); } catch (e) { console.error(e); }
+    });
+
+    // Tab Navigation
+    function switchTab(tabName) {
+      document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      const targetView = document.getElementById('tab-' + tabName);
+      if (targetView) targetView.classList.add('active');
+      const targetNav = document.getElementById('nav-' + tabName);
+      if (targetNav) targetNav.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function returnToAssistant() {
+      document.getElementById('manualBackBtn').style.display = 'none';
+      switchTab('assistant');
+    }
+
+    // Open a specific document in the Manual tab from the Main View top bar
+    function openDocInManual(docKey) {
+      switchTab('manual');
+      document.getElementById('manualBackBtn').style.display = 'flex';
+      document.getElementById('manualSearchInput').value = '';
+      const btn = document.getElementById('docfilter-' + docKey);
+      filterManualByDoc(docKey, btn);
+    }
+
+    // Open Manual directly to a specific Section or Page
+    function openManualAt(sectionQuery, pageNum, highlightCode) {
+      switchTab('manual');
+      document.getElementById('manualBackBtn').style.display = 'flex';
+      document.getElementById('manualSearchInput').value = '';
+      filterManualByDoc('all', document.getElementById('docfilter-all'));
+
+      let bestIdx = 0;
+      const q = (sectionQuery || '').toLowerCase();
+
+      MANUAL_DATA.sections.forEach((sec, idx) => {
+        const secId = (sec.id || '').toLowerCase();
+        const secTitle = (sec.title || '').toLowerCase();
+        if (q === secId || q.startsWith(secId + ' ') || q.includes(secId)) {
+          bestIdx = idx;
+        } else if (q.includes(secTitle) || secTitle.includes(q)) {
+          bestIdx = idx;
+        }
+      });
+
+      if (!q.startsWith('cg-') && !q.startsWith('qig-')) {
+        if (pageNum >= 67 && pageNum <= 81) {
+          const troubleIdx = MANUAL_DATA.sections.findIndex(s => s.id === '5.1');
+          if (troubleIdx !== -1) bestIdx = troubleIdx;
+        } else if (pageNum >= 62 && pageNum <= 66) {
+          const ledIdx = MANUAL_DATA.sections.findIndex(s => s.id === '3.0');
+          if (ledIdx !== -1) bestIdx = ledIdx;
+        }
+      }
+
+      document.querySelectorAll('.manual-section-card').forEach(el => el.classList.remove('highlighted'));
+      document.querySelectorAll('.manual-inline-item').forEach(el => el.classList.remove('target-highlight'));
+
+      const cardEl = document.getElementById('sec-' + bestIdx);
+      if (cardEl) {
+        cardEl.classList.add('open', 'highlighted');
+        setTimeout(() => {
+          if (highlightCode) {
+            const specificEl = document.getElementById('manual-alm-' + highlightCode);
+            if (specificEl) {
+              specificEl.classList.add('target-highlight');
+              specificEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              return;
+            }
+          }
+          cardEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 80);
+      }
+    }
+
+    // Speech Recognition Setup
+    function initSpeechRecognition() {
+      if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.speechBridge) {
+        isNativeBridge = true;
+        document.getElementById('voiceHint').textContent = "Native Apple Speech recognition active.";
+
+        window.onNativeSpeechResult = (transcript, isFinal) => {
+          document.getElementById('transcriptBox').textContent = transcript;
+          document.getElementById('searchInput').value = transcript;
+          document.getElementById('searchClear').style.display = 'flex';
+          performSearch(transcript);
+          if (isFinal) stopVoiceRecording();
+        };
+        window.onNativeSpeechError = (errMsg) => {
+          stopVoiceRecording();
+          document.getElementById('voiceStatus').textContent = "Speech Error: " + errMsg;
+        };
+        window.onNativeSpeechState = (state) => {
+          if (state === 'idle') stopVoiceRecording();
+        };
+        return;
+      }
+
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) return;
+
+      speechRecognition = new SpeechRecognition();
+      speechRecognition.continuous = false;
+      speechRecognition.interimResults = true;
+      speechRecognition.lang = 'en-US';
+
+      speechRecognition.onstart = () => {
+        isListening = true;
+        document.getElementById('micBtn').classList.add('listening');
+        document.getElementById('voiceStatus').textContent = "Listening... Speak now";
+        document.getElementById('transcriptBox').textContent = "Listening to your voice...";
+      };
+
+      speechRecognition.onresult = (event) => {
+        let transcript = '';
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          transcript += event.results[i][0].transcript;
+        }
+        document.getElementById('transcriptBox').textContent = transcript;
+        document.getElementById('searchInput').value = transcript;
+        document.getElementById('searchClear').style.display = 'flex';
+        performSearch(transcript);
+      };
+
+      speechRecognition.onerror = () => {
+        stopVoiceRecording();
+        focusKeyboardDictation();
+      };
+
+      speechRecognition.onend = () => {
+        stopVoiceRecording();
+      };
+    }
+
+    function focusKeyboardDictation() {
+      const input = document.getElementById('searchInput');
+      input.focus();
+      document.getElementById('voiceStatus').textContent = "Ready for iPhone Voice Dictation";
+      document.getElementById('voiceHint').textContent = "Tap the 🎙️ Mic at the bottom-right of your iPhone keyboard to speak";
+      document.getElementById('transcriptBox').textContent = "Speak using your iPhone keyboard 🎙️ button — results update live!";
+    }
+
+    function toggleVoiceRecording() {
+      if (isNativeBridge) {
+        if (isListening) {
+          window.webkit.messageHandlers.speechBridge.postMessage({ action: 'stopListening' });
+          stopVoiceRecording();
+        } else {
+          isListening = true;
+          document.getElementById('micBtn').classList.add('listening');
+          document.getElementById('voiceStatus').textContent = "Listening... Speak now";
+          document.getElementById('transcriptBox').textContent = "Listening to your voice...";
+          window.webkit.messageHandlers.speechBridge.postMessage({ action: 'startListening' });
+        }
+        return;
+      }
+
+      if (!speechRecognition || window.location.protocol === 'data:') {
+        focusKeyboardDictation();
+        return;
+      }
+
+      if (isListening) {
+        speechRecognition.stop();
+        stopVoiceRecording();
+      } else {
+        try {
+          speechRecognition.start();
+        } catch(e) {
+          focusKeyboardDictation();
+        }
+      }
+    }
+
+    function stopVoiceRecording() {
+      isListening = false;
+      document.getElementById('micBtn').classList.remove('listening');
+      document.getElementById('voiceStatus').textContent = "Tap Mic to Ask Across All 3 Docs";
+    }
+
+    // Search Functions
+    function handleSearchInput(query) {
+      const clearBtn = document.getElementById('searchClear');
+      if (query.trim().length > 0) {
+        clearBtn.style.display = 'flex';
+        document.getElementById('transcriptBox').textContent = 'Query: "' + query + '"';
+        performSearch(query);
+      } else {
+        clearBtn.style.display = 'none';
+        document.getElementById('transcriptBox').textContent = "Tap Mic above or speak using iPhone keyboard dictation...";
+        renderDefaultAssistantView();
+      }
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('searchClear').style.display = 'none';
+      document.getElementById('transcriptBox').textContent = "Tap Mic above or speak using iPhone keyboard dictation...";
+      renderDefaultAssistantView();
+    }
+
+    function quickSearch(query) {
+      document.getElementById('searchInput').value = query;
+      document.getElementById('searchClear').style.display = 'flex';
+      document.getElementById('transcriptBox').textContent = 'Query: "' + query + '"';
+      performSearch(query);
+    }
+
+    function docBadgeHtml(docKey) {
+      if (docKey === 'qig') {
+        return '<span class="badge badge-minor">📙 Quick Install v1.1a</span>';
+      } else if (docKey === 'commission') {
+        return '<span class="badge badge-green">📗 Commission Guide v1.4b</span>';
+      }
+      return '<span class="badge badge-info">📘 User Manual v1.3c</span>';
+    }
+
+    function performSearch(rawQuery) {
+      const query = rawQuery.toLowerCase().trim();
+      if (!query) {
+        renderDefaultAssistantView();
+        return;
+      }
+
+      // 1. Direct 4-digit Alarm Code Match
+      const codeMatch = query.match(/\b(1\d{3})\b/);
+      if (codeMatch) {
+        const code = codeMatch[1];
+        const alarm = MANUAL_DATA.alarms.find(a => a.code === code);
+        if (alarm) {
+          renderAlarmResult(alarm);
+          return;
+        }
+      }
+
+      // 2. Quick Field Rules Match (all 3 docs)
+      const matchedRules = (MANUAL_DATA.quick_rules || []).filter(r => {
+        const topicMatch = (r.topic || '').toLowerCase().includes(query);
+        const ansMatch = (r.answer || '').toLowerCase().includes(query);
+        const quoteMatch = (r.quote || '').toLowerCase().includes(query);
+        const kwMatch = (r.keywords || []).some(k => query.includes(k.toLowerCase()) || k.toLowerCase().includes(query));
+        return topicMatch || ansMatch || quoteMatch || kwMatch;
+      });
+
+      // 3. Alarm Name / Cause / Suggestion Match
+      const matchedAlarms = (MANUAL_DATA.alarms || []).filter(a => {
+        return (a.code || '').toLowerCase().includes(query) ||
+               (a.name || '').toLowerCase().includes(query) ||
+               (a.possible_cause || '').toLowerCase().includes(query) ||
+               (a.suggestion || '').toLowerCase().includes(query);
+      });
+
+      // 4. LED States Match
+      const isLedQuery = query.includes('led') || query.includes('light') || query.includes('blink') ||
+                         query.includes('red') || query.includes('green') || query.includes('wilan');
+      const matchedLeds = isLedQuery ? (MANUAL_DATA.led_states.inverter || []).filter(l => {
+        return (l.dc_status || '').toLowerCase().includes(query) ||
+               (l.ac_status || '').toLowerCase().includes(query) ||
+               (l.alarm || '').toLowerCase().includes(query) ||
+               (l.meaning || '').toLowerCase().includes(query);
+      }) : [];
+
+      const matchedBatteryLeds = (MANUAL_DATA.led_states.battery_faults || []).filter(b => {
+        return (b.fault || '').toLowerCase().includes(query) ||
+               (isLedQuery && (b.battery_status || '').toLowerCase().includes(query));
+      });
+
+      // 5. Manual Sections Match across all 3 docs
+      const matchedSections = (MANUAL_DATA.sections || []).filter(s => {
+        return (s.id || '').toLowerCase().includes(query) ||
+               (s.title || '').toLowerCase().includes(query) ||
+               (s.summary || '').toLowerCase().includes(query) ||
+               (s.content || '').toLowerCase().includes(query);
+      });
+
+      if (matchedRules.length > 0 || matchedSections.length > 0 || matchedAlarms.length > 0 || matchedLeds.length > 0 || matchedBatteryLeds.length > 0) {
+        renderCombinedResults({
+          rules: matchedRules,
+          alarms: matchedAlarms,
+          inverterLeds: matchedLeds,
+          batteryLeds: matchedBatteryLeds,
+          sections: matchedSections
+        });
+        return;
+      }
+
+      renderNoResults(rawQuery);
+    }
+
+    function renderAlarmResult(alarm) {
+      const container = document.getElementById('resultsArea');
+      const badgeClass = alarm.severity === 'Major' ? 'badge-major' : (alarm.severity === 'Minor' ? 'badge-minor' : 'badge-warning');
+
+      container.innerHTML = `
+        <div class="card">
+          <div class="card-header">
+            <span class="badge ${badgeClass}">${escapeHtml(alarm.severity)} Fault</span>
+            <span style="font-family: monospace; font-size: 14px; font-weight: 700; color: var(--accent-cyan);">Alarm #${escapeHtml(alarm.code)}</span>
+          </div>
+
+          <div class="card-title">${escapeHtml(alarm.name)}</div>
+          <div class="section-chip" onclick="openManualAt('5.1', ${alarm.page}, '${alarm.code}')">
+            📘 &sect; ${escapeHtml(alarm.section)} • Page ${alarm.page} (Tap to open in Manual)
+          </div>
+
+          <div class="field-label">System Action:</div>
+          <div class="field-value">${escapeHtml(alarm.action)}</div>
+
+          <div class="field-label">Possible Cause:</div>
+          <div class="field-value">${escapeHtml(alarm.possible_cause)}</div>
+
+          <div class="field-label">Recommended Troubleshooting Steps:</div>
+          <div class="field-value" style="color: #e2f0d9;">${formatSuggestions(alarm.suggestion)}</div>
+
+          <div class="receipt-box">
+            <strong>Verbatim Manual Receipt (&sect; ${escapeHtml(alarm.section)}, p. ${alarm.page}):</strong><br>
+            &ldquo;Alarm ID ${escapeHtml(alarm.code)} — ${escapeHtml(alarm.name)}: ${escapeHtml(alarm.possible_cause)}&rdquo;
+          </div>
+
+          <button class="open-manual-btn" onclick="openManualAt('5.1', ${alarm.page}, '${alarm.code}')">
+            <span>📖 Open in User Manual: &sect; ${escapeHtml(alarm.section)} • Page ${alarm.page}</span>
+            <span>&rarr;</span>
+          </button>
+        </div>
+      `;
+    }
+
+    function renderCombinedResults(res) {
+      const container = document.getElementById('resultsArea');
+      let html = '';
+
+      // 1. Quick Rules (with Doc badge)
+      res.rules.forEach(rule => {
+        const docKey = rule.doc || 'manual';
+        html += `
+          <div class="card">
+            <div class="card-header">
+              ${docBadgeHtml(docKey)}
+              <span style="font-size: 12px; color: var(--text-secondary);">Page ${rule.page}</span>
+            </div>
+            <div class="card-title">${escapeHtml(rule.topic)}</div>
+            <div class="section-chip" onclick="openManualAt('${escapeJs(rule.section)}', ${rule.page})">
+              📖 &sect; ${escapeHtml(rule.section)} • Page ${rule.page}
+            </div>
+            <div class="field-label">Direct Answer &amp; Procedure:</div>
+            <div class="field-value">${escapeHtml(rule.answer)}</div>
+            <div class="receipt-box">
+              <strong>Verbatim Source Quote:</strong><br>
+              &ldquo;${escapeHtml(rule.quote)}&rdquo;
+            </div>
+            <button class="open-manual-btn" onclick="openManualAt('${escapeJs(rule.section)}', ${rule.page})">
+              <span>📖 Open in Manual: &sect; ${escapeHtml(rule.section)} • Page ${rule.page}</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        `;
+      });
+
+      // 2. Alarms
+      res.alarms.forEach(alarm => {
+        const badgeClass = alarm.severity === 'Major' ? 'badge-major' : (alarm.severity === 'Minor' ? 'badge-minor' : 'badge-warning');
+        html += `
+          <div class="card">
+            <div class="card-header">
+              <span class="badge ${badgeClass}">${escapeHtml(alarm.severity)}</span>
+              <span style="font-family: monospace; font-size: 14px; font-weight: 700; color: var(--accent-cyan);">Alarm #${escapeHtml(alarm.code)}</span>
+            </div>
+            <div class="card-title">${escapeHtml(alarm.name)}</div>
+            <div class="section-chip" onclick="openManualAt('5.1', ${alarm.page}, '${alarm.code}')">
+              📘 &sect; ${escapeHtml(alarm.section)} • Page ${alarm.page}
+            </div>
+            <div class="field-label">Possible Cause:</div>
+            <div class="field-value">${escapeHtml(alarm.possible_cause)}</div>
+            <div class="field-label">Remediation:</div>
+            <div class="field-value">${formatSuggestions(alarm.suggestion)}</div>
+            <button class="open-manual-btn" onclick="openManualAt('5.1', ${alarm.page}, '${alarm.code}')">
+              <span>📖 Open in Manual: &sect; ${escapeHtml(alarm.section)} • Page ${alarm.page}</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        `;
+      });
+
+      // 3. Inverter LEDs
+      res.inverterLeds.forEach(led => {
+        html += `
+          <div class="card">
+            <div class="card-header">
+              <span class="badge badge-info">📘 Inverter LED State</span>
+              <span style="font-size: 12px; color: var(--text-secondary);">Page 62</span>
+            </div>
+            <div class="card-title" style="font-size: 16px;">${escapeHtml(led.meaning)}</div>
+            <div class="section-chip" onclick="openManualAt('3.0', 62)">
+              📖 &sect; 3.1 Inverter LED Indicators • Page 62
+            </div>
+            <div class="led-grid">
+              <div><strong>DC:</strong> ${escapeHtml(led.dc_status)}</div>
+              <div><strong>AC:</strong> ${escapeHtml(led.ac_status)}</div>
+              <div><strong>Off-grid:</strong> ${escapeHtml(led.off_grid)}</div>
+              <div><strong>Alarm:</strong> ${escapeHtml(led.alarm)}</div>
+            </div>
+            <button class="open-manual-btn" onclick="openManualAt('3.0', 62)">
+              <span>📖 Open in Manual: &sect; 3.0 LED Descriptions • Page 62</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        `;
+      });
+
+      // 4. Battery Fault LEDs
+      res.batteryLeds.slice(0, 6).forEach(bat => {
+        html += `
+          <div class="card">
+            <div class="card-header">
+              <span class="badge badge-major">📘 Battery LED Fault</span>
+              <span style="font-size: 12px; color: var(--text-secondary);">Page 64</span>
+            </div>
+            <div class="card-title" style="font-size: 16px;">${escapeHtml(bat.fault)}</div>
+            <div class="section-chip" onclick="openManualAt('3.0', 64)">
+              📖 &sect; 3.2 Battery Fault LED Table • Page 64
+            </div>
+            <div class="field-value">
+              Status LED: <strong style="color:var(--accent-red);">${escapeHtml(bat.battery_status)}</strong><br>
+              SOC Bars: LED1: <strong>${escapeHtml(bat.led1)}</strong> | LED2: <strong>${escapeHtml(bat.led2)}</strong> | LED3: <strong>${escapeHtml(bat.led3)}</strong> | LED4: <strong>${escapeHtml(bat.led4)}</strong>
+            </div>
+            <button class="open-manual-btn" onclick="openManualAt('3.0', 64)">
+              <span>📖 Open in Manual: &sect; 3.2 Battery LEDs • Page 64</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        `;
+      });
+
+      // 5. Manual Sections across all 3 docs
+      res.sections.forEach(sec => {
+        html += `
+          <div class="card">
+            <div class="card-header">
+              ${docBadgeHtml(sec.doc)}
+              <span style="font-size: 12px; color: var(--text-secondary);">&sect; ${escapeHtml(sec.id)} • Page ${sec.page}</span>
+            </div>
+            <div class="card-title" style="font-size: 16px;">${escapeHtml(sec.title)}</div>
+            <div class="section-chip" onclick="openManualAt('${escapeJs(sec.id)}', ${sec.page})">
+              📖 &sect; ${escapeHtml(sec.id)} ${escapeHtml(sec.title)} • Page ${sec.page}
+            </div>
+            <div class="field-value">${escapeHtml(sec.content)}</div>
+            <button class="open-manual-btn" onclick="openManualAt('${escapeJs(sec.id)}', ${sec.page})">
+              <span>📖 Open in ${escapeHtml(sec.doc_title || 'Manual')}: &sect; ${escapeHtml(sec.id)} • Page ${sec.page}</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function renderNoResults(query) {
+      document.getElementById('resultsArea').innerHTML = `
+        <div class="card" style="text-align: center; padding: 28px 16px;">
+          <div style="font-size: 32px; margin-bottom: 8px;">🔍</div>
+          <div class="card-title" style="font-size: 16px;">No exact match for &ldquo;${escapeHtml(query)}&rdquo;</div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;">
+            Try an alarm code (e.g. <strong>1025</strong>, <strong>1035</strong>) or terms like <strong>turn on</strong>, <strong>wire gauge</strong>, <strong>CT</strong>, <strong>120</strong>, <strong>checklist</strong>, <strong>zero back-feed</strong>, or <strong>E-STOP</strong>.
+          </p>
+        </div>
+      `;
+    }
+
+    function renderDefaultAssistantView() {
+      const container = document.getElementById('resultsArea');
+      container.innerHTML = `
+        <div style="font-size: 12px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">
+          Featured Guides Across All 3 Documents
+        </div>
+
+        <!-- Quick Install Guide Highlight -->
+        <div class="card">
+          <div class="card-header">
+            <span class="badge badge-minor">📙 Quick Install Guide v1.1a</span>
+            <span style="font-size: 12px; color: var(--text-secondary);">Pages 18–34</span>
+          </div>
+          <div class="card-title" style="font-size: 16px;">Wiring Gauges, 120&Omega; Resistors, CTs &amp; Turn-On Sequence</div>
+          <p style="font-size: 13px; color: #cfd8e3;">
+            • <strong>Turn On:</strong> PV Switch &amp; AC Breakers ON &rarr; BAT SWITCH ON &rarr; Hold <strong>BAT POWER 3s</strong>.<br>
+            • <strong>Turn Off:</strong> PV Switch OFF &rarr; Hold <strong>BAT POWER 5s</strong> &rarr; BAT SWITCH &amp; AC OFF &rarr; Wait <strong>5m</strong>.<br>
+            • <strong>Cables:</strong> 1 unit = 6 AWG; 2/3/4 parallel units = 2 AWG / 2/0 AWG / 4/0 AWG; Two <strong>120&Omega; resistors</strong> in last unit P5 socket.
+          </p>
+          <div style="display:flex; gap:8px; margin-top:12px;">
+            <button class="open-manual-btn" style="margin-top:0; flex:1;" onclick="openManualAt('QIG-5', 18)">
+              <span>📖 Wiring &amp; AWG (p. 18) &rarr;</span>
+            </button>
+            <button class="open-manual-btn" style="margin-top:0; flex:1; background: var(--bg-card); border:1px solid var(--accent-orange);" onclick="openManualAt('QIG-8', 34)">
+              <span>📖 Turn On/Off (p. 34) &rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Commission Guide Highlight -->
+        <div class="card">
+          <div class="card-header">
+            <span class="badge badge-green">📗 Commission Guide v1.4b</span>
+            <span style="font-size: 12px; color: var(--text-secondary);">Pages 2–12</span>
+          </div>
+          <div class="card-title" style="font-size: 16px;">FoxCloud2.0 Setup &amp; 7-Item Commissioning Checklist</div>
+          <p style="font-size: 13px; color: #cfd8e3;">
+            • <strong>Mandatory:</strong> 1. Time Zone &amp; 2. Energy Mode.<br>
+            • <strong>Conditional:</strong> 3. Zero Back-feed (0.0%), 4. Service Panel Param (HubAsServicePanel=No), 5. Grid Code, 6. Existing Solar Power (AC-Couple), 7. Charge from Grid.<br>
+            • <strong>Wi-Fi Rule:</strong> Must use <strong>2.4GHz Wi-Fi</strong> (5GHz will fail) + phone Bluetooth ON.
+          </p>
+          <div style="display:flex; gap:8px; margin-top:12px;">
+            <button class="open-manual-btn" style="margin-top:0; flex:1;" onclick="openManualAt('CG-5', 8)">
+              <span>📖 7-Item Checklist (p. 8) &rarr;</span>
+            </button>
+            <button class="open-manual-btn" style="margin-top:0; flex:1; background: var(--bg-card); border:1px solid var(--accent-green);" onclick="openDocInManual('commission')">
+              <span>📗 Full Guide (12p) &rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- User Manual Highlight -->
+        <div class="card">
+          <div class="card-header">
+            <span class="badge badge-info">📘 User Manual v1.3c</span>
+            <span style="font-size: 12px; color: var(--text-secondary);">Pages 3, 10, 67–81</span>
+          </div>
+          <div class="card-title" style="font-size: 16px;">Safety Wait Times, E-STOP Reset &amp; 49 Alarm Codes</div>
+          <p style="font-size: 13px; color: #cfd8e3;">
+            • <strong>5m Discharge / 15m Test:</strong> Wait 5m before opening covers; wait 15m before voltage measurement.<br>
+            • <strong>E-STOP Recovery:</strong> Press and hold E-STOP for <strong>3 seconds</strong>, then rotate clockwise to release.
+          </p>
+          <div style="display:flex; gap:8px; margin-top:12px;">
+            <button class="open-manual-btn" style="margin-top:0; flex:1;" onclick="openManualAt('5.1', 67, '1025')">
+              <span>📖 Alarms Table (p. 67) &rarr;</span>
+            </button>
+            <button class="open-manual-btn" style="margin-top:0; flex:1; background: var(--bg-card); border:1px solid var(--accent-cyan);" onclick="openDocInManual('manual')">
+              <span>📘 User Manual (84p) &rarr;</span>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Alarm Directory View
+    function renderAlarmDirectory() {
+      const container = document.getElementById('alarmDirectoryList');
+      let html = '';
+
+      const filtered = (MANUAL_DATA.alarms || []).filter(a => {
+        if (currentFilter === 'all') return true;
+        return (a.severity || '').toLowerCase() === currentFilter.toLowerCase();
+      });
+
+      filtered.forEach(alarm => {
+        const badgeClass = alarm.severity === 'Major' ? 'badge-major' : (alarm.severity === 'Minor' ? 'badge-minor' : 'badge-warning');
+        html += `
+          <div class="alarm-list-item" onclick="showAlarmDetail('${alarm.code}')">
+            <div style="display: flex; align-items: center;">
+              <span class="alarm-code">${escapeHtml(alarm.code)}</span>
+              <div>
+                <div style="font-weight: 600; font-size: 14px;">${escapeHtml(alarm.name)}</div>
+                <div style="font-size: 11px; color: var(--text-secondary);">📘 &sect; ${escapeHtml(alarm.section)} • Page ${alarm.page}</div>
+              </div>
+            </div>
+            <span class="badge ${badgeClass}">${escapeHtml(alarm.severity)}</span>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function filterAlarms(severity, btn) {
+      currentFilter = severity;
+      document.querySelectorAll('#tab-directory .filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderAlarmDirectory();
+    }
+
+    function showAlarmDetail(code) {
+      switchTab('assistant');
+      quickSearch(code);
+    }
+
+    // LED View (Smart WiLAN + Inverter + Battery)
+    function renderLeds() {
+      const wilanContainer = document.getElementById('wilanLedList');
+      let wilanHtml = '';
+      (MANUAL_DATA.led_states.smart_wilan || []).forEach(item => {
+        const dotColor = (item.indicator || '').toLowerCase().includes('red') ? 'red' : 'green';
+        wilanHtml += `
+          <div class="led-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <span class="led-dot ${dotColor}"></span>
+                <strong style="font-size:14px;">${escapeHtml(item.indicator)} — ${escapeHtml(item.status)}</strong>
+              </div>
+              <span class="badge badge-green">Smart WiLAN</span>
+            </div>
+            <div style="font-size:13px; color:#cfd8e3; margin-top:6px;">
+              <strong>Meaning:</strong> ${escapeHtml(item.instructions)}
+            </div>
+          </div>
+        `;
+      });
+      wilanContainer.innerHTML = wilanHtml;
+
+      const invContainer = document.getElementById('inverterLedList');
+      let invHtml = '';
+      (MANUAL_DATA.led_states.inverter || []).forEach(item => {
+        const isFault = (item.alarm || '').toLowerCase().includes('red');
+        invHtml += `
+          <div class="led-card">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+              <strong style="font-size: 14px; color: ${isFault ? '#ff8a80' : '#ffffff'};">${escapeHtml(item.meaning)}</strong>
+              <span class="badge ${isFault ? 'badge-major' : 'badge-info'}">${isFault ? 'Alarm' : 'Normal'}</span>
+            </div>
+            <div class="led-grid">
+              <div><span class="led-dot ${dotClassFor(item.dc_status)}"></span><strong>DC:</strong> ${escapeHtml(item.dc_status)}</div>
+              <div><span class="led-dot ${dotClassFor(item.ac_status)}"></span><strong>AC:</strong> ${escapeHtml(item.ac_status)}</div>
+              <div><span class="led-dot ${dotClassFor(item.off_grid)}"></span><strong>Off-Grid:</strong> ${escapeHtml(item.off_grid)}</div>
+              <div><span class="led-dot ${dotClassFor(item.alarm)}"></span><strong>Alarm:</strong> ${escapeHtml(item.alarm)}</div>
+            </div>
+          </div>
+        `;
+      });
+      invContainer.innerHTML = invHtml;
+
+      const batContainer = document.getElementById('batteryLedList');
+      let batHtml = '';
+      (MANUAL_DATA.led_states.battery_faults || []).forEach((item, idx) => {
+        batHtml += `
+          <div class="led-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <strong style="color: var(--accent-orange); font-size: 14px;">#${idx + 1} ${escapeHtml(item.fault)}</strong>
+              <span class="badge badge-major">Status: ${escapeHtml(item.battery_status)}</span>
+            </div>
+            <div class="led-grid" style="grid-template-columns: repeat(4, 1fr); text-align:center;">
+              <div><span class="led-dot ${dotClassFor(item.led1)}"></span>L1: ${shortLed(item.led1)}</div>
+              <div><span class="led-dot ${dotClassFor(item.led2)}"></span>L2: ${shortLed(item.led2)}</div>
+              <div><span class="led-dot ${dotClassFor(item.led3)}"></span>L3: ${shortLed(item.led3)}</div>
+              <div><span class="led-dot ${dotClassFor(item.led4)}"></span>L4: ${shortLed(item.led4)}</div>
+            </div>
+          </div>
+        `;
+      });
+      batContainer.innerHTML = batHtml;
+    }
+
+    function dotClassFor(val) {
+      const s = (val || '').toLowerCase();
+      if (s.includes('red')) return 'red';
+      if (s.includes('green')) return 'green';
+      if (s.includes('yellow')) return 'yellow';
+      return 'off';
+    }
+
+    function shortLed(val) {
+      if (!val) return 'Off';
+      return val.replace('Solid ', '');
+    }
+
+    // Manual Section View (All 3 Documents)
+    function renderManualSections() {
+      const container = document.getElementById('manualSectionList');
+      let html = '';
+
+      (MANUAL_DATA.sections || []).forEach((sec, idx) => {
+        let extraHtml = '';
+        const docKey = sec.doc || 'manual';
+
+        const matchingRules = (MANUAL_DATA.quick_rules || []).filter(r => (r.section || '').includes(sec.id));
+        if (matchingRules.length > 0) {
+          extraHtml += `<div class="field-label" style="margin-top:12px; color:var(--accent-orange);">Key Verbatim Rules in &sect; ${escapeHtml(sec.id)}:</div>`;
+          matchingRules.forEach(r => {
+            extraHtml += `
+              <div class="receipt-box" style="margin-top:6px;">
+                <strong>${escapeHtml(r.topic)} (Page ${r.page}):</strong><br>
+                &ldquo;${escapeHtml(r.quote)}&rdquo;
+              </div>
+            `;
+          });
+        }
+
+        if (sec.id === '3.0') {
+          extraHtml += `<div class="field-label" style="margin-top:14px; color:var(--accent-cyan);">Table 3-1: Inverter LED Combinations (Pages 62–63):</div>`;
+          (MANUAL_DATA.led_states.inverter || []).forEach(l => {
+            extraHtml += `
+              <div class="manual-inline-item">
+                <div style="font-weight:600; color:#fff;">${escapeHtml(l.meaning)}</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:3px;">
+                  DC: ${escapeHtml(l.dc_status)} | AC: ${escapeHtml(l.ac_status)} | Off-Grid: ${escapeHtml(l.off_grid)} | Alarm: ${escapeHtml(l.alarm)}
+                </div>
+              </div>
+            `;
+          });
+        }
+
+        if (sec.id === '5.1') {
+          extraHtml += `<div class="field-label" style="margin-top:14px; color:var(--accent-cyan);">Table 5-1: Complete Alarm Code Reference (Pages 67–81):</div>`;
+          (MANUAL_DATA.alarms || []).forEach(a => {
+            extraHtml += `
+              <div class="manual-inline-item" id="manual-alm-${a.code}">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="color:var(--accent-cyan); font-family:monospace;">Alarm #${escapeHtml(a.code)}: ${escapeHtml(a.name)}</strong>
+                  <span style="font-size:11px; color:var(--text-secondary);">Page ${a.page} • ${escapeHtml(a.severity)}</span>
+                </div>
+                <div style="font-size:12px; color:#cfd8e3; margin-top:4px;"><strong>Cause:</strong> ${escapeHtml(a.possible_cause)}</div>
+                <div style="font-size:12px; color:#b8e0b8; margin-top:4px;"><strong>Remedy:</strong> ${escapeHtml(a.suggestion)}</div>
+              </div>
+            `;
+          });
+        }
+
+        let docIcon = '📘';
+        let idColor = 'var(--accent-cyan)';
+        if (docKey === 'qig') { docIcon = '📙'; idColor = 'var(--accent-orange)'; }
+        else if (docKey === 'commission') { docIcon = '📗'; idColor = 'var(--accent-green)'; }
+
+        html += `
+          <div class="manual-section-card" id="sec-${idx}" data-doc="${docKey}" data-search="${escapeHtml((sec.id + ' ' + sec.title + ' ' + sec.summary + ' ' + sec.content + ' ' + (sec.doc_title || '') + ' page ' + sec.page).toLowerCase())}">
+            <div class="manual-section-header" onclick="toggleSection(${idx})">
+              <div>
+                <div style="font-size:11px; color:var(--text-secondary); margin-bottom:2px;">${docIcon} ${escapeHtml(sec.doc_title || 'User Manual v1.3c')}</div>
+                <span style="color:${idColor}; font-family:monospace; margin-right:6px;">&sect; ${escapeHtml(sec.id)}</span>
+                <span>${escapeHtml(sec.title)}</span>
+              </div>
+              <span style="color: var(--text-secondary); font-size: 12px; white-space:nowrap; margin-left:8px;">p. ${sec.page} &#9662;</span>
+            </div>
+            <div class="manual-section-body">
+              <div class="manual-summary-box">
+                <strong>Scope:</strong> ${escapeHtml(sec.summary)}
+              </div>
+              <div style="line-height:1.6; white-space:pre-line;">${escapeHtml(sec.content)}</div>
+              ${extraHtml}
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function toggleSection(idx) {
+      const el = document.getElementById('sec-' + idx);
+      if (el) el.classList.toggle('open');
+    }
+
+    function toggleExpandAllManual() {
+      allManualExpanded = !allManualExpanded;
+      document.querySelectorAll('.manual-section-card').forEach(el => {
+        if (el.style.display !== 'none') {
+          if (allManualExpanded) el.classList.add('open');
+          else el.classList.remove('open');
+        }
+      });
+      document.getElementById('expandAllBtn').textContent = allManualExpanded ? 'Collapse All' : 'Expand All';
+    }
+
+    function filterManualByDoc(docKey, btn) {
+      currentDocFilter = docKey;
+      document.querySelectorAll('#tab-manual .filter-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      applyManualFilters();
+    }
+
+    function applyManualFilters() {
+      const q = (document.getElementById('manualSearchInput').value || '').toLowerCase().trim();
+      document.querySelectorAll('.manual-section-card').forEach(el => {
+        const docKey = el.getAttribute('data-doc') || 'manual';
+        const docMatch = (currentDocFilter === 'all') || (docKey === currentDocFilter);
+        const hay = el.getAttribute('data-search') || '';
+        const textMatch = !q || hay.includes(q);
+
+        if (docMatch && textMatch) {
+          el.style.display = 'block';
+          if (q) el.classList.add('open');
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+
+    // Utility Helpers
+    function formatSuggestions(text) {
+      const lines = (text || '').split('\n');
+      let html = '<ol style="padding-left: 20px; margin-top: 4px;">';
+      lines.forEach(l => {
+        const trimmed = l.trim().replace(/^\d+\.\s*/, '');
+        if (trimmed) {
+          html += `<li style="margin-bottom: 6px;">${escapeHtml(trimmed)}</li>`;
+        }
+      });
+      html += '</ol>';
+      return html;
+    }
+
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
+    function escapeJs(str) {
+      if (str === null || str === undefined) return '';
+      return String(str).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+    }
+  </script>
+</body>
+</html>

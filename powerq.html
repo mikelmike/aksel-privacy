@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  <title>Fox PowerQ Assistant v2.0</title>
+  <title>Fox PowerQ Assistant v2.1</title>
 
   <!-- iOS Web App Meta Tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -163,87 +163,39 @@
       padding-bottom: 84px;
     }
 
-    /* Welcome Hero Card */
+    /* Welcome Hero (Clean Minimal ChatGPT Style) */
     .welcome-hero {
       text-align: center;
-      padding: 24px 16px 16px;
-      background: linear-gradient(180deg, rgba(24, 34, 48, 0.6) 0%, rgba(18, 24, 32, 0) 100%);
-      border-radius: 20px;
-      border: 1px solid var(--border-color);
-      margin-bottom: 8px;
+      padding: 60px 16px 20px;
+      margin: 0 auto;
+      max-width: 480px;
     }
 
     .welcome-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       background: linear-gradient(135deg, #0a84ff, #0051d5);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
+      font-size: 22px;
       color: white;
-      margin: 0 auto 12px;
-      box-shadow: 0 4px 18px rgba(10, 132, 255, 0.35);
+      margin: 0 auto 14px;
+      box-shadow: 0 4px 16px rgba(10, 132, 255, 0.3);
     }
 
     .welcome-title {
-      font-size: 19px;
-      font-weight: 800;
+      font-size: 22px;
+      font-weight: 700;
       color: white;
       margin-bottom: 6px;
     }
 
     .welcome-sub {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-secondary);
-      max-width: 480px;
-      margin: 0 auto 16px;
       line-height: 1.45;
-    }
-
-    /* Quick Prompt Pills Grid */
-    .prompt-grid-title {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      margin-bottom: 10px;
-      text-align: left;
-    }
-
-    .prompt-chips-wrap {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 8px;
-      text-align: left;
-    }
-
-    .prompt-chip {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: #cfd8e3;
-      padding: 10px 12px;
-      border-radius: 12px;
-      font-size: 13px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.15s ease;
-      line-height: 1.35;
-    }
-
-    .prompt-chip:active {
-      background: var(--bg-card-hover);
-      border-color: var(--accent-cyan);
-      transform: scale(0.98);
-    }
-
-    .prompt-chip-icon {
-      font-size: 16px;
-      flex-shrink: 0;
     }
 
     /* Message Bubbles */
@@ -387,37 +339,7 @@
       opacity: 0.85;
     }
 
-    .followups-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
 
-    .followup-label {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      width: 100%;
-      margin-bottom: 2px;
-    }
-
-    .followup-pill {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-color);
-      color: #a5c7f8;
-      padding: 5px 11px;
-      border-radius: 12px;
-      font-size: 12px;
-      cursor: pointer;
-    }
-
-    .followup-pill:active {
-      background: rgba(10, 132, 255, 0.2);
-    }
 
     /* Fixed Bottom Docked Input Bar (ChatGPT Style) */
     .docked-input-bar {
@@ -693,32 +615,7 @@
       box-shadow: 0 0 14px rgba(255, 149, 0, 0.35);
     }
 
-    /* iOS Installation Banner */
-    .ios-install-banner {
-      background: linear-gradient(135deg, #1b2838, #182230);
-      border: 1px solid rgba(10, 132, 255, 0.35);
-      border-radius: 14px;
-      padding: 12px 14px;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 12px;
-      color: #cfd8e3;
-    }
 
-    .ios-install-banner strong {
-      color: #64b5f6;
-    }
-
-    .ios-close-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-secondary);
-      font-size: 18px;
-      cursor: pointer;
-      padding: 0 4px;
-    }
   </style>
 </head>
 <body>
@@ -731,7 +628,7 @@
         <h1>Fox PowerQ AI</h1>
         <div class="brand-badge">
           <span class="brand-dot"></span>
-          <span>Offline • 3 Manuals • v2.0</span>
+          <span>Offline • 3 Manuals • v2.1</span>
         </div>
       </div>
     </div>
@@ -750,76 +647,14 @@
   <!-- TAB 1: CHATGPT ASSISTANT -->
   <main id="tab-assistant" class="view-container active">
 
-    <!-- Standalone Home Screen Banner (Dismissible) -->
-    <div class="ios-install-banner" id="iosBanner">
-      <div>
-        <strong>&#128241; Run as Full-Screen App:</strong> Tap Safari <strong>Share &#9118;</strong> &rarr; <strong>Add to Home Screen</strong>.
-      </div>
-      <button class="ios-close-btn" onclick="dismissIosBanner()">&times;</button>
-    </div>
-
     <!-- Chat Stream Area -->
     <div class="chat-stream" id="chatStream">
 
-      <!-- Welcome Hero State -->
+      <!-- Welcome State -->
       <div class="welcome-hero" id="welcomeHero">
         <div class="welcome-icon">&#9889;</div>
-        <div class="welcome-title">Fox PowerQ Expert Assistant</div>
-        <div class="welcome-sub">
-          Ask any question across the <strong>User Manual</strong>, <strong>Quick Install Guide</strong>, and <strong>Commissioning Guide</strong>. Instant, 100% offline answers.
-        </div>
-
-        <div class="prompt-grid-title">Frequently Asked Questions (Tap to Ask):</div>
-        <div class="prompt-chips-wrap">
-          <div class="prompt-chip" onclick="askPreset('How do I turn on the system?')">
-            <span class="prompt-chip-icon">&#9889;</span>
-            <span>Turn On (3s Rule)</span>
-          </div>
-          <div class="prompt-chip" onclick="askPreset('How do I turn off or shut down the system?')">
-            <span class="prompt-chip-icon">&#9209;</span>
-            <span>Turn Off (5s Rule)</span>
-          </div>
-          <div class="prompt-chip" onclick="askPreset('What causes Alarm 1025 and how do I fix it?')">
-            <span class="prompt-chip-icon">&#9888;&#65039;</span>
-            <span>Alarm 1025 Grid Volt</span>
-          </div>
-          <div class="prompt-chip" onclick="askPreset('What causes Alarm 1035 and how do I fix it?')">
-            <span class="prompt-chip-icon">&#128308;</span>
-            <span>Alarm 1035 Isolation</span>
-          </div>
-          <div class="prompt-chip" onclick="askPreset('What do the WiLAN dongle LED lights mean?')">
-            <span class="prompt-chip-icon">&#128246;</span>
-            <span>WiLAN Dongle LEDs</span>
-          </div>
-          <div class="prompt-chip" onclick="askPreset('What do the Inverter status LED lights mean?')">
-            <span class="prompt-chip-icon">&#128161;</span>
-            <span>Inverter Status LEDs</span>
-          </div>
-          <div class="prompt-chip" onclick="askPreset('Which direction must CT clamp arrows point?')">
-            <span class="prompt-chip-icon">&#128260;</span>
-            <span>CT Clamp Arrows</span>
-          </div>
-          <div class="prompt-chip" onclick="askPreset('What wire gauges and torque specs are required?')">
-            <span class="prompt-chip-icon">&#128295;</span>
-            <span>Wire Gauges &amp; Torque</span>
-          </div>
-          <div class="prompt-chip" onclick="askPreset('Where do the 120 ohm resistors go?')">
-            <span class="prompt-chip-icon">&#128268;</span>
-            <span>120&Omega; Resistors (P5)</span>
-          </div>
-          <div class="prompt-chip" onclick="askPreset('How do I configure Zero Backfeed?')">
-            <span class="prompt-chip-icon">&#128737;&#65039;</span>
-            <span>Zero Back-feed (0.0%)</span>
-          </div>
-          <div class="prompt-chip" onclick="askPreset('How long must I wait before opening covers?')">
-            <span class="prompt-chip-icon">&#9203;</span>
-            <span>5m Capacitor Rule</span>
-          </div>
-          <div class="prompt-chip" onclick="askPreset('What is the Canadian service panel rule for FOX Hub G2?')">
-            <span class="prompt-chip-icon">&#127464;&#127462;</span>
-            <span>Canadian Hub G2 Rule</span>
-          </div>
-        </div>
+        <div class="welcome-title">Fox PowerQ</div>
+        <div class="welcome-sub">Ask any question across the FOXESS manuals. Instant, 100% offline answers.</div>
       </div>
 
       <!-- Messages Stream List -->
@@ -934,17 +769,7 @@
       renderAlarmDirectory();
       renderLeds();
       renderManualSections();
-      if (localStorage.getItem('iosBannerDismissed') === 'true') {
-        const b = document.getElementById('iosBanner');
-        if (b) b.style.display = 'none';
-      }
     });
-
-    function dismissIosBanner() {
-      const b = document.getElementById('iosBanner');
-      if (b) b.style.display = 'none';
-      localStorage.setItem('iosBannerDismissed', 'true');
-    }
 
     // Tab Navigation
     function switchTab(tabName) {
@@ -960,7 +785,8 @@
     // Chat Functions
     function startNewChat() {
       document.getElementById('messagesList').innerHTML = '';
-      document.getElementById('welcomeHero').style.display = 'block';
+      const hero = document.getElementById('welcomeHero');
+      if (hero) hero.style.display = 'block';
       document.getElementById('chatInput').value = '';
       updateSendButtonState();
       switchTab('assistant');
@@ -991,7 +817,8 @@
 
       input.value = '';
       updateSendButtonState();
-      document.getElementById('welcomeHero').style.display = 'none';
+      const hero = document.getElementById('welcomeHero');
+      if (hero) hero.style.display = 'none';
 
       appendUserBubble(text);
       processAssistantResponse(text);
@@ -1151,12 +978,7 @@
             <span>&rarr;</span>
           </button>
 
-          <div class="followups-wrap">
-            <div class="followup-label">Related Checks:</div>
-            <div class="followup-pill" onclick="askPreset('What do the Inverter status LED lights mean?')">&#128161; Inverter LEDs</div>
-            <div class="followup-pill" onclick="askPreset('How long must I wait before opening covers?')">&#9203; 5m Capacitor Rule</div>
-            <div class="followup-pill" onclick="askPreset('How do I turn on the system?')">&#9889; System Restart</div>
-          </div>
+
         </div>
       `;
 
@@ -1202,12 +1024,7 @@
               <span>&rarr;</span>
             </button>
 
-            <div class="followups-wrap">
-              <div class="followup-label">Related Questions:</div>
-              <div class="followup-pill" onclick="askPreset('How do I turn on the system?')">&#9889; Turn On Sequence</div>
-              <div class="followup-pill" onclick="askPreset('What wire gauges and torque specs are required?')">&#128295; Wire Gauges &amp; Torque</div>
-              <div class="followup-pill" onclick="askPreset('What causes Alarm 1025 and how do I fix it?')">&#9888;&#65039; Alarm 1025</div>
-            </div>
+
           </div>
         `;
       } else if (match.type === 'rule') {
@@ -1267,22 +1084,15 @@
         <div class="msg-assistant">
           <div class="ai-hdr">
             <div class="ai-avatar">&#9889;</div>
-            <div class="ai-hdr-title">I couldn't find an exact match for "${escapeHtml(rawQuery)}"</div>
+            <div class="ai-hdr-title">Fox PowerQ Assistant</div>
           </div>
 
           <div class="ans-summary">
-            Here are the most common field topics across all 3 FOXESS manuals. Tap one below to get instant guidance:
+            I couldn't find an exact match in the manuals for "${escapeHtml(rawQuery)}".
           </div>
 
-          <div class="followups-wrap" style="border-top:none; margin-top:8px;">
-            <div class="followup-pill" onclick="askPreset('How do I turn on the system?')">&#9889; Turn On Sequence (3s)</div>
-            <div class="followup-pill" onclick="askPreset('How do I turn off or shut down the system?')">&#9209; Turn Off Sequence (5s)</div>
-            <div class="followup-pill" onclick="askPreset('What causes Alarm 1025 and how do I fix it?')">&#9888;&#65039; Alarm 1025 (Grid Volt)</div>
-            <div class="followup-pill" onclick="askPreset('What causes Alarm 1035 and how do I fix it?')">&#128308; Alarm 1035 (Isolation Fault)</div>
-            <div class="followup-pill" onclick="askPreset('What do the WiLAN dongle LED lights mean?')">&#128246; WiLAN LEDs (Red/Green/Blue)</div>
-            <div class="followup-pill" onclick="askPreset('What wire gauges and torque specs are required?')">&#128295; Wire Gauges &amp; Torque</div>
-            <div class="followup-pill" onclick="askPreset('Which direction must CT clamp arrows point?')">&#128260; CT Clamp Orientation</div>
-            <div class="followup-pill" onclick="askPreset('How do I configure Zero Backfeed?')">&#128737;&#65039; Zero Back-feed Setup</div>
+          <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">
+            Try asking with specific keywords such as an alarm code (e.g. <strong>1025</strong> or <strong>1035</strong>), <strong>turn on</strong>, <strong>turn off</strong>, <strong>WiLAN LED</strong>, <strong>wire gauge</strong>, <strong>torque</strong>, or <strong>CT clamp</strong>.
           </div>
         </div>
       `;

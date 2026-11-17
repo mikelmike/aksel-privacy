@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  <title>Fox PowerQ Assistant v2.2</title>
+  <title>Fox PowerQ Assistant v2.3</title>
 
   <!-- iOS Web App Meta Tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -564,12 +564,29 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 12px 14px;
       margin-bottom: 8px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .alarm-item-header {
+      padding: 12px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      cursor: pointer;
+    }
+
+    .alarm-item-body {
+      display: none;
+      padding: 12px 14px 14px;
+      border-top: 1px solid var(--border-color);
+      background: rgba(0, 0, 0, 0.15);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .alarm-list-item.open .alarm-item-body {
+      display: block;
     }
 
     .alarm-code {
@@ -784,6 +801,7 @@
     }
 
     function askPreset(query) {
+      switchTab('assistant');
       document.getElementById('chatInput').value = query;
       updateSendButtonState();
       sendUserMessage();
@@ -1148,7 +1166,7 @@
       document.getElementById('micBtn').classList.remove('listening');
     }
 
-    // Alarms Directory View
+    // Alarms Directory View (In-Place Accordion)
     function renderAlarmDirectory() {
       const container = document.getElementById('alarmDirectoryList');
       let html = '';
@@ -1161,20 +1179,42 @@
       filtered.forEach(alarm => {
         const badgeClass = alarm.severity === 'Major' ? 'badge-major' : (alarm.severity === 'Minor' ? 'badge-minor' : 'badge-warning');
         html += `
-          <div class="alarm-list-item" onclick="askPreset('Alarm ${alarm.code} ${alarm.name}')">
-            <div style="display:flex; align-items:center;">
-              <span class="alarm-code">${escapeHtml(alarm.code)}</span>
-              <div>
-                <div style="font-weight:600; font-size:14px; color:#ffffff;">${escapeHtml(alarm.name)}</div>
-                <div style="font-size:11px; color:var(--text-secondary);">📘 &sect; ${escapeHtml(alarm.section)} • Page ${alarm.page}</div>
+          <div class="alarm-list-item" id="alarm-${alarm.code}" onclick="toggleAlarmItem('${alarm.code}')">
+            <div class="alarm-item-header">
+              <div style="display:flex; align-items:center;">
+                <span class="alarm-code">${escapeHtml(alarm.code)}</span>
+                <div>
+                  <div style="font-weight:600; font-size:14px; color:#ffffff;">${escapeHtml(alarm.name)}</div>
+                  <div style="font-size:11px; color:var(--text-secondary);">📘 &sect; ${escapeHtml(alarm.section)} • Page ${alarm.page} &#9662;</div>
+                </div>
+              </div>
+              <span class="badge ${badgeClass}">${escapeHtml(alarm.severity)}</span>
+            </div>
+            <div class="alarm-item-body">
+              <div style="margin-bottom:6px;"><strong style="color:var(--text-primary);">System Action:</strong> <span style="color:#d8e2ec;">${escapeHtml(alarm.action)}</span></div>
+              <div class="callout-box" style="margin:8px 0;"><strong style="color:#ffe0b2;">Possible Cause:</strong> ${escapeHtml(alarm.possible_cause)}</div>
+              <div style="font-weight:700; font-size:12px; color:var(--accent-green); margin:8px 0 4px;">Recommended Troubleshooting:</div>
+              <div class="ans-steps" style="margin-bottom:8px;">${formatSuggestions(alarm.suggestion)}</div>
+              <div style="display:flex; gap:8px; margin-top:10px;">
+                <button class="action-btn" style="font-size:12px; padding:6px 12px;" onclick="event.stopPropagation(); askPreset('Alarm ${alarm.code} ${alarm.name}')">
+                  <span>💬 Ask Assistant</span>
+                  <span>&rarr;</span>
+                </button>
+                <button class="hdr-btn" style="font-size:12px; padding:6px 12px;" onclick="event.stopPropagation(); openManualAt('5.1', ${alarm.page}, '${alarm.code}')">
+                  <span>📘 View Manual (p. ${alarm.page})</span>
+                </button>
               </div>
             </div>
-            <span class="badge ${badgeClass}">${escapeHtml(alarm.severity)}</span>
           </div>
         `;
       });
 
       container.innerHTML = html;
+    }
+
+    function toggleAlarmItem(code) {
+      const el = document.getElementById('alarm-' + code);
+      if (el) el.classList.toggle('open');
     }
 
     function setAlarmSeverityFilter(sev, btn) {
@@ -1193,20 +1233,24 @@
       });
     }
 
-    // LEDs View
+    // LEDs View (Clean Readable Cards with explicit Ask Assistant button)
     function renderLeds() {
       // WiLAN
       const wList = document.getElementById('wilanLedList');
       let wHtml = '';
       (MANUAL_DATA.led_states?.smart_wilan || []).forEach(w => {
         wHtml += `
-          <div class="card" onclick="askPreset('What does WiLAN ${w.state} mean?')">
+          <div class="card">
             <div class="card-header">
               <span style="font-weight:700; color:var(--accent-green);">${escapeHtml(w.state)}</span>
               <span class="badge badge-green">${escapeHtml(w.indication)}</span>
             </div>
             <div style="font-size:13px; color:#d8e2ec;"><strong>Meaning:</strong> ${escapeHtml(w.description)}</div>
             <div style="font-size:12px; color:#a0aec0; margin-top:4px;"><strong>Remedy:</strong> ${escapeHtml(w.troubleshooting)}</div>
+            <button class="action-btn" style="font-size:11px; padding:5px 10px; margin-top:8px;" onclick="askPreset('What does WiLAN ${w.state} mean?')">
+              <span>💬 Ask Assistant</span>
+              <span>&rarr;</span>
+            </button>
           </div>
         `;
       });
@@ -1217,7 +1261,7 @@
       let iHtml = '';
       (MANUAL_DATA.led_states?.inverter || []).forEach(inv => {
         iHtml += `
-          <div class="card" onclick="askPreset('Inverter LED: ${inv.meaning}')">
+          <div class="card">
             <div class="card-header">
               <span style="font-weight:700; color:var(--accent-cyan);">${escapeHtml(inv.meaning)}</span>
               <span class="badge badge-minor">Page 62</span>
@@ -1225,6 +1269,10 @@
             <div style="font-size:13px; color:#cfd8e3;">
               <strong>DC:</strong> ${escapeHtml(inv.dc_status)} | <strong>AC:</strong> ${escapeHtml(inv.ac_status)} | <strong>Alarm:</strong> ${escapeHtml(inv.alarm)}
             </div>
+            <button class="action-btn" style="font-size:11px; padding:5px 10px; margin-top:8px;" onclick="askPreset('Inverter LED: ${inv.meaning}')">
+              <span>💬 Ask Assistant</span>
+              <span>&rarr;</span>
+            </button>
           </div>
         `;
       });
@@ -1235,12 +1283,16 @@
       let bHtml = '';
       (MANUAL_DATA.led_states?.battery_faults || []).slice(0, 10).forEach(b => {
         bHtml += `
-          <div class="card" onclick="askPreset('Battery Fault: ${b.fault}')">
+          <div class="card">
             <div class="card-header">
               <span style="font-weight:700; color:var(--accent-orange);">${escapeHtml(b.fault)}</span>
               <span class="badge badge-major">${escapeHtml(b.battery_status)}</span>
             </div>
             <div style="font-size:12px; color:#cfd8e3;"><strong>LED Pattern:</strong> ${escapeHtml(b.led_indication)}</div>
+            <button class="action-btn" style="font-size:11px; padding:5px 10px; margin-top:8px;" onclick="askPreset('Battery Fault: ${b.fault}')">
+              <span>💬 Ask Assistant</span>
+              <span>&rarr;</span>
+            </button>
           </div>
         `;
       });

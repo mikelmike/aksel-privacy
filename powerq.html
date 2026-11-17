@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  <title>Fox PowerQ Assistant v2.5</title>
+  <title>Fox PowerQ Assistant v2.6</title>
 
   <!-- iOS Web App Meta Tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -54,76 +54,6 @@
       padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 64px);
     }
 
-    /* Top Fixed Header */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 52px;
-      background: rgba(10, 14, 20, 0.94);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 16px;
-      z-index: 200;
-      border-bottom: 1px solid var(--border-color);
-      padding-top: env(safe-area-inset-top, 0px);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #ff9500, #ff5e3a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      color: white;
-      font-size: 16px;
-      box-shadow: 0 2px 8px rgba(255, 149, 0, 0.35);
-      flex-shrink: 0;
-    }
-
-    .brand-text h1 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text-primary);
-      line-height: 1.2;
-    }
-
-    .brand-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11px;
-      color: var(--accent-green);
-      font-weight: 600;
-    }
-
-    .brand-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--accent-green);
-      box-shadow: 0 0 6px var(--accent-green);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
     .hdr-btn {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border-color);
@@ -146,7 +76,7 @@
     /* Main View Container */
     .view-container {
       display: none;
-      padding: 60px 12px 20px;
+      padding: 16px 12px 20px;
       max-width: 760px;
       margin: 0 auto;
     }
@@ -155,7 +85,7 @@
       display: block;
     }
 
-    /* CHAT STREAM (ChatGPT Style) */
+    /* CHAT STREAM */
     .chat-stream {
       display: flex;
       flex-direction: column;
@@ -163,10 +93,10 @@
       padding-bottom: 84px;
     }
 
-    /* Welcome Hero (Clean Minimal ChatGPT Style) */
+    /* Welcome Hero */
     .welcome-hero {
       text-align: center;
-      padding: 60px 16px 20px;
+      padding: 32px 16px 16px;
       margin: 0 auto;
       max-width: 480px;
     }
@@ -229,7 +159,7 @@
       width: 100%;
       background: var(--bg-assistant-bubble);
       border: 1px solid var(--border-color);
-      border-radius: 4px 18px 18px 18px;
+      border-radius: 12px;
       padding: 16px 16px;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
     }
@@ -680,23 +610,7 @@
 </head>
 <body>
 
-  <!-- TOP HEADER -->
-  <header>
-    <div class="brand">
-      <div class="brand-icon">&#9889;</div>
-      <div class="brand-text">
-        <h1>Fox PowerQ AI</h1>
-      </div>
-    </div>
-    <div class="header-actions">
-      <button class="hdr-btn" onclick="startNewChat()">
-        <span>&#8634;</span>
-        <span>New Chat</span>
-      </button>
-    </div>
-  </header>
-
-  <!-- TAB 1: CHATGPT ASSISTANT -->
+  <!-- TAB 1: ASSISTANT -->
   <main id="tab-assistant" class="view-container active">
 
     <!-- Chat Stream Area -->
@@ -716,7 +630,7 @@
     <!-- Docked Input Bar (Fixed Bottom) -->
     <div class="docked-input-bar">
       <div class="docked-input-inner">
-        <input type="text" id="chatInput" class="chat-text-input" placeholder="Ask anything about Fox PowerQ..." onkeydown="handleInputKeyDown(event)" oninput="updateSendButtonState()">
+        <input type="text" id="chatInput" class="chat-text-input" placeholder="Enter alarm code, symptom, or question..." onkeydown="handleInputKeyDown(event)" oninput="updateSendButtonState()">
         <button class="mic-input-btn" id="micBtn" onclick="toggleVoiceDictation()" aria-label="Voice Dictation">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
             <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
@@ -882,22 +796,15 @@
       const hero = document.getElementById('welcomeHero');
       if (hero) hero.style.display = 'none';
 
-      appendUserBubble(text);
+      // Clean screen for new request: exactly 1 card is on the screen, this is not a chat
+      document.getElementById('messagesList').innerHTML = '';
+
       processAssistantResponse(text);
     }
 
-    function appendUserBubble(text) {
-      const list = document.getElementById('messagesList');
-      const wrap = document.createElement('div');
-      wrap.className = 'msg-wrap';
-      wrap.innerHTML = `<div class="msg-user">${escapeHtml(text)}</div>`;
-      list.appendChild(wrap);
-      scrollToBottom();
-    }
-
-    function scrollToBottom() {
+    function scrollToTop() {
       setTimeout(() => {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }, 50);
     }
 
@@ -1014,7 +921,6 @@
       wrap.innerHTML = `
         <div class="msg-assistant">
           <div class="ai-hdr">
-            <div class="ai-avatar">&#9889;</div>
             <div class="ai-hdr-title">Alarm #${escapeHtml(alarm.code)}: ${escapeHtml(alarm.name)}</div>
             <span class="badge ${badgeClass} ai-hdr-doc">${escapeHtml(alarm.severity)}</span>
           </div>
@@ -1041,13 +947,11 @@
             <span>&#128214; View in User Manual (&sect; ${escapeHtml(alarm.section)}, p. ${alarm.page})</span>
             <span>&rarr;</span>
           </button>
-
-
         </div>
       `;
 
       list.appendChild(wrap);
-      scrollToBottom();
+      scrollToTop();
     }
 
     function renderTopMatchedResult(match) {
@@ -1069,7 +973,6 @@
         wrap.innerHTML = `
           <div class="msg-assistant">
             <div class="ai-hdr">
-              <div class="ai-avatar">&#9889;</div>
               <div class="ai-hdr-title">${escapeHtml(f.q)}</div>
               <span class="ai-hdr-doc">${escapeHtml(f.doc_title)}</span>
             </div>
@@ -1089,8 +992,6 @@
               <span>&#128214; Open in ${escapeHtml(f.doc_title)} (p. ${f.page})</span>
               <span>&rarr;</span>
             </button>
-
-
           </div>
         `;
       } else if (match.type === 'rule') {
@@ -1099,7 +1000,6 @@
         wrap.innerHTML = `
           <div class="msg-assistant">
             <div class="ai-hdr">
-              <div class="ai-avatar">&#9889;</div>
               <div class="ai-hdr-title">${escapeHtml(r.topic)}</div>
               <span class="ai-hdr-doc">${docBadge}</span>
             </div>
@@ -1125,7 +1025,6 @@
         wrap.innerHTML = `
           <div class="msg-assistant">
             <div class="ai-hdr">
-              <div class="ai-avatar">&#9889;</div>
               <div class="ai-hdr-title">LED Diagnostic Match</div>
             </div>
             <div class="ans-summary">Please check the LED Diagnostic tab for full color state and blinking tables.</div>
@@ -1138,7 +1037,7 @@
       }
 
       list.appendChild(wrap);
-      scrollToBottom();
+      scrollToTop();
     }
 
     function renderFallbackCard(rawQuery) {
@@ -1149,12 +1048,11 @@
       wrap.innerHTML = `
         <div class="msg-assistant">
           <div class="ai-hdr">
-            <div class="ai-avatar">&#9889;</div>
-            <div class="ai-hdr-title">Fox PowerQ Assistant</div>
+            <div class="ai-hdr-title">Diagnostic Search</div>
           </div>
 
           <div class="ans-summary">
-            I couldn't find an exact match in the manuals for "${escapeHtml(rawQuery)}".
+            No exact match found in the manuals for "${escapeHtml(rawQuery)}".
           </div>
 
           <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">
@@ -1164,7 +1062,7 @@
       `;
 
       list.appendChild(wrap);
-      scrollToBottom();
+      scrollToTop();
     }
 
     // Voice Dictation (Web Speech API)

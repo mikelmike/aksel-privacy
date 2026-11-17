@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  <title>Fox PowerQ Assistant v2.3</title>
+  <title>Fox PowerQ Assistant v2.4</title>
 
   <!-- iOS Web App Meta Tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -760,13 +760,17 @@
 
     let speechRecognition = null;
     let isListening = false;
+    let dictationBaseText = '';
+    let recognitionRestartTimer = null;
     let currentAlarmFilter = 'all';
     let currentDocFilter = 'all';
 
     // Register Service Worker for Cache-First Offline Operation
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(err => {
+        navigator.serviceWorker.register('./sw.js').then((reg) => {
+          reg.update();
+        }).catch(err => {
           console.warn('SW register fail:', err);
         });
       });
@@ -792,6 +796,7 @@
 
     // Chat Functions
     function startNewChat() {
+      if (isListening) stopVoiceDictation();
       document.getElementById('messagesList').innerHTML = '';
       const hero = document.getElementById('welcomeHero');
       if (hero) hero.style.display = 'block';
@@ -801,6 +806,7 @@
     }
 
     function askPreset(query) {
+      if (isListening) stopVoiceDictation();
       switchTab('assistant');
       document.getElementById('chatInput').value = query;
       updateSendButtonState();
@@ -820,6 +826,9 @@
     }
 
     function sendUserMessage() {
+      if (isListening) {
+        stopVoiceDictation();
+      }
       const input = document.getElementById('chatInput');
       const text = (input.value || '').trim();
       if (!text) return;
@@ -1115,32 +1124,65 @@
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognition) return;
 
-      speechRecognition = new SpeechRecognition();
-      speechRecognition.continuous = false;
+      try {
+        speechRecognition = new SpeechRecognition();
+      } catch (err) {
+        console.warn('SpeechRecognition create fail:', err);
+        return;
+      }
+      speechRecognition.continuous = true;
       speechRecognition.interimResults = true;
       speechRecognition.lang = 'en-US';
 
       speechRecognition.onresult = (e) => {
-        let transcript = '';
-        for (let i = e.resultIndex; i < e.results.length; i++) {
-          transcript += e.results[i][0].transcript;
+        let sessionTranscript = '';
+        for (let i = 0; i < e.results.length; i++) {
+          sessionTranscript += e.results[i][0].transcript;
         }
-        document.getElementById('chatInput').value = transcript;
+        const full = (dictationBaseText + sessionTranscript).trimStart();
+        document.getElementById('chatInput').value = full;
         updateSendButtonState();
       };
 
-      speechRecognition.onerror = () => {
-        stopVoiceDictation();
+      speechRecognition.onerror = (e) => {
+        console.warn('SpeechRecognition error:', e.error);
+        if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
+          stopVoiceDictation();
+        }
       };
 
       speechRecognition.onend = () => {
-        stopVoiceDictation();
+        // Stay in mic mode across short pauses until user clicks arrow (send) or toggles mic off
+        if (isListening) {
+          const input = document.getElementById('chatInput');
+          dictationBaseText = (input.value || '').trim();
+          if (dictationBaseText) dictationBaseText += ' ';
+
+          clearTimeout(recognitionRestartTimer);
+          recognitionRestartTimer = setTimeout(() => {
+            if (isListening && speechRecognition) {
+              try {
+                speechRecognition.start();
+              } catch (err) {
+                if (err.name === 'NotAllowedError') {
+                  stopVoiceDictation();
+                }
+              }
+            }
+          }, 80);
+        } else {
+          const micBtn = document.getElementById('micBtn');
+          if (micBtn) micBtn.classList.remove('listening');
+        }
       };
     }
 
     function toggleVoiceDictation() {
       if (!speechRecognition) {
-        alert('Voice dictation is supported on Safari iOS keyboard (tap the microphone key on your keyboard).');
+        initSpeechRecognition();
+      }
+      if (!speechRecognition) {
+        alert('Voice dictation is supported on Safari and modern browsers. On iOS keyboard, you can also tap the microphone key.');
         return;
       }
       if (isListening) {
@@ -1151,19 +1193,33 @@
     }
 
     function startVoiceDictation() {
+      if (!speechRecognition) return;
+      const input = document.getElementById('chatInput');
+      dictationBaseText = (input.value || '').trim();
+      if (dictationBaseText) dictationBaseText += ' ';
+
+      isListening = true;
+      clearTimeout(recognitionRestartTimer);
+      const micBtn = document.getElementById('micBtn');
+      if (micBtn) micBtn.classList.add('listening');
+
       try {
         speechRecognition.start();
-        isListening = true;
-        document.getElementById('micBtn').classList.add('listening');
-      } catch (e) {}
+      } catch (e) {
+        console.log('Recognition already active or starting:', e);
+      }
     }
 
     function stopVoiceDictation() {
-      try {
-        speechRecognition.stop();
-      } catch (e) {}
       isListening = false;
-      document.getElementById('micBtn').classList.remove('listening');
+      clearTimeout(recognitionRestartTimer);
+      const micBtn = document.getElementById('micBtn');
+      if (micBtn) micBtn.classList.remove('listening');
+      if (speechRecognition) {
+        try {
+          speechRecognition.stop();
+        } catch (e) {}
+      }
     }
 
     // Alarms Directory View (In-Place Accordion)
@@ -1247,10 +1303,15 @@
             </div>
             <div style="font-size:13px; color:#d8e2ec;"><strong>Meaning:</strong> ${escapeHtml(w.description)}</div>
             <div style="font-size:12px; color:#a0aec0; margin-top:4px;"><strong>Remedy:</strong> ${escapeHtml(w.troubleshooting)}</div>
-            <button class="action-btn" style="font-size:11px; padding:5px 10px; margin-top:8px;" onclick="askPreset('What does WiLAN ${w.state} mean?')">
-              <span>💬 Ask Assistant</span>
-              <span>&rarr;</span>
-            </button>
+            <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="action-btn" style="font-size:11px; padding:5px 10px; margin-top:0;" onclick="askPreset('What does WiLAN ${w.state} mean?')">
+                <span>💬 Ask Assistant</span>
+                <span>&rarr;</span>
+              </button>
+              <button class="hdr-btn" style="font-size:11px; padding:5px 10px;" onclick="openManualAt('CG-3', 6)">
+                <span>📘 View Manual (p. 6)</span>
+              </button>
+            </div>
           </div>
         `;
       });
@@ -1269,10 +1330,15 @@
             <div style="font-size:13px; color:#cfd8e3;">
               <strong>DC:</strong> ${escapeHtml(inv.dc_status)} | <strong>AC:</strong> ${escapeHtml(inv.ac_status)} | <strong>Alarm:</strong> ${escapeHtml(inv.alarm)}
             </div>
-            <button class="action-btn" style="font-size:11px; padding:5px 10px; margin-top:8px;" onclick="askPreset('Inverter LED: ${inv.meaning}')">
-              <span>💬 Ask Assistant</span>
-              <span>&rarr;</span>
-            </button>
+            <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="action-btn" style="font-size:11px; padding:5px 10px; margin-top:0;" onclick="askPreset('Inverter LED: ${inv.meaning}')">
+                <span>💬 Ask Assistant</span>
+                <span>&rarr;</span>
+              </button>
+              <button class="hdr-btn" style="font-size:11px; padding:5px 10px;" onclick="openManualAt('3.0', 62)">
+                <span>📘 View Manual (p. 62)</span>
+              </button>
+            </div>
           </div>
         `;
       });
@@ -1289,10 +1355,15 @@
               <span class="badge badge-major">${escapeHtml(b.battery_status)}</span>
             </div>
             <div style="font-size:12px; color:#cfd8e3;"><strong>LED Pattern:</strong> ${escapeHtml(b.led_indication)}</div>
-            <button class="action-btn" style="font-size:11px; padding:5px 10px; margin-top:8px;" onclick="askPreset('Battery Fault: ${b.fault}')">
-              <span>💬 Ask Assistant</span>
-              <span>&rarr;</span>
-            </button>
+            <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="action-btn" style="font-size:11px; padding:5px 10px; margin-top:0;" onclick="askPreset('Battery Fault: ${b.fault}')">
+                <span>💬 Ask Assistant</span>
+                <span>&rarr;</span>
+              </button>
+              <button class="hdr-btn" style="font-size:11px; padding:5px 10px;" onclick="openManualAt('3.0', 64)">
+                <span>📘 View Manual (p. 64)</span>
+              </button>
+            </div>
           </div>
         `;
       });

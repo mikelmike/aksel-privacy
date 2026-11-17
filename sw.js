@@ -1,5 +1,5 @@
-// sw.js — Fox PowerQ Offline Cache Service Worker
-const CACHE_NAME = 'powerq-v1.2';
+// sw.js — Fox PowerQ Offline Cache Service Worker v2.0
+const CACHE_NAME = 'powerq-v2.0';
 const ASSETS = ['./powerq.html', './'];
 
 self.addEventListener('install', (e) => {
